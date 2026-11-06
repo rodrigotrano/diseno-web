@@ -1912,12 +1912,26 @@ a.red:hover {
         margin-top: 16px;
     }
 
-    /* en celular la barra de redes queda abajo a la izquierda y más pequeña */
+    /* en celular la barra de redes deja de flotar: va en fila al final de la página,
+       antes del pie, para no tapar el contenido */
     .redes-flotantes {
-        top: auto;
-        bottom: 12px;
+        position: static;
         transform: none;
-        padding: 6px;
+        width: max-content;
+        margin: 24px auto 0 auto;
+        padding: 8px 12px;
+        border-radius: 999px;
+    }
+
+    .redes-flotantes ul {
+        flex-direction: row;
+    }
+
+    /* la ilustración deja de flotar y el texto usa todo el ancho */
+    .nosotros-contenido .patinadora {
+        float: none;
+        width: 160px;
+        margin: 0 auto 16px auto;
     }
 
     .red {
