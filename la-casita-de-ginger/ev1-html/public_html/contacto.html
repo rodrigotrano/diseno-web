@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ubicación, redes sociales y formulario de pedidos de La Casita de Ginger, Chillán.">
+    <meta name="author" content="Rodrigo - IPLACEX Diseño Web">
+    <title>La Casita de Ginger | Contacto y pedidos</title>
+    <link rel="icon" href="img/logo-casita-ginger.png" type="image/png">
+</head>
+<body>
+
+    <!-- ===== ENCABEZADO (igual en todas las páginas) ===== -->
+    <header>
+        <a href="index.html">
+            <img src="img/logo-casita-ginger.png" alt="Logo de La Casita de Ginger, Chillán, Chile" width="120" height="120">
+        </a>
+        <p><strong>La Casita de Ginger</strong><br>Donde la Navidad se vive todo el año</p>
+
+        <nav aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Quiénes somos</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html" aria-current="page">Contacto y pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main>
+
+        <h1>Contacto y pedidos</h1>
+        <p>Llevamos un poquito de la magia de nuestra casita hasta ti. Visítanos en Chillán o escríbenos para hacer tu pedido.</p>
+
+        <!-- Ubicación -->
+        <section id="ubicacion">
+            <h2>Ven a visitarnos</h2>
+            <p>Contamos con un local de atención presencial donde nuestros clientes pueden conocer y disfrutar de nuestra propuesta temática.</p>
+
+            <address>
+                <strong>Dirección:</strong> Yungay 95, esquina Iquique, Villa Kennedy, Chillán, Región de Ñuble, Chile.
+            </address>
+
+            <p>
+                <iframe
+                    src="https://maps.google.com/maps?q=Yungay%2095%2C%20Chill%C3%A1n%2C%20%C3%91uble%2C%20Chile&amp;z=16&amp;output=embed"
+                    width="600" height="350"
+                    title="Mapa de ubicación de La Casita de Ginger en Chillán"
+                    loading="lazy">
+                </iframe>
+            </p>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Yungay+95+Chill%C3%A1n+Chile" target="_blank" rel="noopener noreferrer">Abrir ubicación en Google Maps</a></p>
+        </section>
+
+        <!-- Formulario de pedido -->
+        <section id="pedido">
+            <h2>Haz tu pedido</h2>
+            <p>¿Quieres disfrutar nuestras delicias en casa o sorprender a alguien especial? Completa el formulario o escríbenos a través de nuestras redes sociales o WhatsApp para consultar por nuestros productos y realizar tus pedidos.</p>
+
+            <form action="mailto:Fabiola.Avendano@gmail.com" method="post" enctype="text/plain">
+
+                <fieldset>
+                    <legend>Tus datos</legend>
+                    <p>
+                        <label for="nombre">Nombre completo:</label><br>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: María González" required>
+                    </p>
+                    <p>
+                        <label for="correo">Correo electrónico:</label><br>
+                        <input type="email" id="correo" name="correo" placeholder="nombre@correo.com" required>
+                    </p>
+                    <p>
+                        <label for="telefono">Teléfono:</label><br>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Tu pedido</legend>
+                    <p>
+                        <label for="producto">Producto:</label><br>
+                        <select id="producto" name="producto" required>
+                            <option value="">-- Selecciona un producto --</option>
+                            <optgroup label="Tortas">
+                                <option value="torta-amor">Torta Amor</option>
+                                <option value="torta-caluga">Torta Caluga</option>
+                                <option value="torta-mocca-nuez">Torta Mocca Nuez</option>
+                                <option value="torta-pina-clasica">Torta de Piña Clásica</option>
+                                <option value="torta-5-leches">Torta 5 Leches</option>
+                                <option value="torta-7-sabores">Torta 7 Sabores</option>
+                                <option value="torta-3-leches-maracuya">Torta 3 Leches Maracuyá</option>
+                                <option value="torta-pompadour">Torta Pompadour</option>
+                                <option value="torta-martuca">Torta Martuca</option>
+                                <option value="torta-sra-ginger">Torta Sra. Ginger</option>
+                                <option value="torta-pie-de-limon">Torta Pie de Limón</option>
+                            </optgroup>
+                            <optgroup label="Otros productos">
+                                <option value="torta-tematica">Torta temática personalizada</option>
+                                <option value="galletas-decoradas">Galletas decoradas</option>
+                                <option value="galletitas-pintables">Cajita de galletitas pintables</option>
+                                <option value="desayuno-sorpresa">Desayuno sorpresa personalizado</option>
+                                <option value="picarones">Picarones</option>
+                                <option value="dulces-chilenos">Dulces chilenos (alfajores y otros)</option>
+                                <option value="kuchen-pie">Kuchen o pie</option>
+                                <option value="otro">Otro producto (indícalo en los detalles)</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                    <p>Tamaño (solo para tortas):</p>
+                    <p>
+                        <input type="radio" id="tamano-20" name="tamano" value="20 personas" checked>
+                        <label for="tamano-20">20 personas</label><br>
+                        <input type="radio" id="tamano-30" name="tamano" value="30 personas">
+                        <label for="tamano-30">30 personas</label>
+                    </p>
+                    <p>
+                        <label for="fecha">Fecha en que necesitas tu pedido:</label><br>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </p>
+                    <p>
+                        <label for="detalle">Detalles del pedido:</label><br>
+                        <textarea id="detalle" name="detalle" rows="5" cols="50" placeholder="Temática, mensaje en la torta, cantidad de galletas, etc."></textarea>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>¿Cómo prefieres que te contactemos?</legend>
+                    <p>
+                        <input type="checkbox" id="contacto-correo" name="medio_contacto" value="correo" checked>
+                        <label for="contacto-correo">Correo electrónico</label><br>
+                        <input type="checkbox" id="contacto-whatsapp" name="medio_contacto" value="whatsapp">
+                        <label for="contacto-whatsapp">WhatsApp</label><br>
+                        <input type="checkbox" id="contacto-instagram" name="medio_contacto" value="instagram">
+                        <label for="contacto-instagram">Instagram</label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Enviar pedido</button>
+                    <button type="reset">Limpiar formulario</button>
+                </p>
+            </form>
+        </section>
+
+        <!-- Redes sociales y contacto directo -->
+        <section id="redes">
+            <h2>Síguenos y escríbenos</h2>
+            <ul>
+                <li>Instagram: <a href="https://www.instagram.com/lacasitadeginger_/" target="_blank" rel="noopener noreferrer">@lacasitadeginger_</a></li>
+                <li>TikTok: <a href="https://www.tiktok.com/@lacasitadeginger" target="_blank" rel="noopener noreferrer">@lacasitadeginger</a></li>
+                <li>Correo: <a href="mailto:Fabiola.Avendano@gmail.com">Fabiola.Avendano@gmail.com</a></li>
+                <li>WhatsApp: <a href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer">+56 9 5228 1744</a> (también puedes <a href="tel:+56952281744">llamarnos</a>)</li>
+                <li>Facebook: próximamente</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ===== PIE DE PÁGINA (igual en todas las páginas) ===== -->
+    <footer>
+        <address>
+            <strong>La Casita de Ginger</strong><br>
+            Yungay 95, esquina Iquique, Villa Kennedy, Chillán, Región de Ñuble, Chile<br>
+            WhatsApp: <a href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer">+56 9 5228 1744</a><br>
+            Correo: <a href="mailto:Fabiola.Avendano@gmail.com">Fabiola.Avendano@gmail.com</a>
+        </address>
+        <p>
+            Síguenos:
+            <a href="https://www.instagram.com/lacasitadeginger_/" target="_blank" rel="noopener noreferrer">Instagram @lacasitadeginger_</a> |
+            <a href="https://www.tiktok.com/@lacasitadeginger" target="_blank" rel="noopener noreferrer">TikTok @lacasitadeginger</a> |
+            Facebook (próximamente)
+        </p>
+        <p><small>&copy; 2026 La Casita de Ginger. Sitio desarrollado por Rodrigo Tranolao Zambrano para la asignatura Diseño Web, IPLACEX.</small></p>
+    </footer>
+
+</body>
+</html>

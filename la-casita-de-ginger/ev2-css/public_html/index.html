@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La Casita de Ginger: pastelería temática en Chillán donde la Navidad se vive todo el año. Tortas, galletas, pastelería y preparaciones tradicionales chilenas.">
+    <meta name="author" content="Rodrigo - IPLACEX Diseño Web">
+    <title>La Casita de Ginger | Inicio</title>
+    <link rel="icon" href="img/logo-casita-ginger.webp" type="image/webp">
+    <!-- Tipografías de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&amp;family=Nunito:wght@400;700&amp;display=swap">
+    <!-- Hoja de estilos externa del sitio -->
+    <!-- Íconos de redes sociales (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Precarga de la animación de Ginger para que aparezca sin demora -->
+    <link rel="preload" href="img/ginger-animacion.webp" as="image" type="image/webp">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="inicio">
+
+    <!-- ===== ENCABEZADO FLOTANTE (igual en todas las páginas) ===== -->
+    <header class="encabezado">
+        <a class="boton-menu" href="#menu" aria-label="Abrir el menú completo">
+            <span></span><span></span><span></span>
+        </a>
+        <a href="index.html" class="logo-enlace">
+            <img class="logo" src="img/logo-casita-ginger.webp" alt="Logo de La Casita de Ginger, Chillán, Chile" width="120" height="120">
+        </a>
+        <p class="marca"><strong>La Casita de Ginger</strong> <span>Donde la Navidad se vive todo el año</span></p>
+
+        <nav class="menu-principal" aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nuestra historia</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a class="boton" href="pedido.html">Haz tu pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MENÚ COMPLETO A PANTALLA COMPLETA (se abre con :target) ===== -->
+    <nav id="menu" class="menu-completo" aria-label="Menú completo">
+        <a class="cerrar" href="#" aria-label="Cerrar el menú">&times;</a>
+        <figure class="menu-ginger">
+            <img src="img/ginger-saludando.webp" alt="Ginger saludando" width="481" height="700">
+        </figure>
+        <div class="menu-lista">
+            <img class="menu-logo" src="img/logo-casita-ginger.webp" alt="" width="120" height="120">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html#tortas">Tortas</a></li>
+                <li><a href="productos.html#galletas">Galletas</a></li>
+                <li><a href="productos.html#pasteleria">Dulces chilenos</a></li>
+                <li><a href="productos.html#desayunos">Desayunos sorpresa</a></li>
+                <li><a href="nosotros.html">Nuestra historia</a></li>
+                <li><a href="nosotros.html#ginger">Conoce a Ginger</a></li>
+                <li><a href="nosotros.html#testimonios">Testimonios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="pedido.html">Haz tu pedido</a></li>
+                <li><a href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="portada">
+
+        <!-- Recuadro grande de bienvenida -->
+        <section id="bienvenida" class="hero">
+            <div class="nieve" aria-hidden="true"></div>
+            <!-- Ginger animado: corre, se detiene, corre, se detiene y saluda (animación por cuadros) -->
+            <figure class="hero-ginger">
+                <div class="ginger-animado" role="img" aria-label="Ginger, la galletita de jengibre, corriendo, deteniéndose y saludando"></div>
+            </figure>
+            <div class="hero-texto">
+                <p class="frase-marca">¡Donde la Navidad se vive todo el año!</p>
+                <h1><span class="saludo">Bienvenidos</span> <span class="saludo-sub">a La Casita de Ginger</span></h1>
+                <p class="lema">Pastelería artesanal y natural. Sabores que te hacen volver.</p>
+            </div>
+            <ul class="redes-circulos">
+                <li><a href="https://www.instagram.com/lacasitadeginger_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.tiktok.com/@lacasitadeginger" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a></li>
+                <li><a href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></li>
+            </ul>
+         </section>
+
+        <!-- Tres accesos grandes con imagen -->
+        <nav class="tarjetas" aria-label="Accesos principales">
+            <a class="tarjeta" href="productos.html">
+                <img src="img/galletas-personalizadas.jpg" alt="Galletas decoradas de La Casita de Ginger" width="700" height="657">
+                <span class="tarjeta-etiqueta">Productos <span class="flecha" aria-hidden="true">&rarr;</span></span>
+            </a>
+            <a class="tarjeta" href="nosotros.html">
+                <img src="img/fachada-local.jpg" alt="Fachada del local de La Casita de Ginger" width="696" height="523">
+                <span class="tarjeta-etiqueta">Nuestra historia <span class="flecha" aria-hidden="true">&rarr;</span></span>
+            </a>
+            <a class="tarjeta" href="pedido.html">
+                <img src="img/caja-casita-ginger.jpg" alt="Caja con forma de casita de jengibre" width="800" height="638">
+                <span class="tarjeta-etiqueta">Haz tu pedido <span class="flecha" aria-hidden="true">&rarr;</span></span>
+            </a>
+        </nav>
+
+    </main>
+
+    <!-- ===== PIE DE PÁGINA ===== -->
+    <footer class="pie">
+        <p class="creditos"><small>&copy; 2026 La Casita de Ginger · Sitio diseñado y desarrollado por <strong>Rodrigo Tranolao</strong></small></p>
+    </footer>
+
+</body>
+</html>

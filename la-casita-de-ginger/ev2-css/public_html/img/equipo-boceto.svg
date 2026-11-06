@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <!-- Imagen provisoria: se reemplazará por la foto de Fabiola y Alejandro -->
+  <rect width="600" height="450" fill="#FDF0E1"/>
+  <rect x="12" y="12" width="576" height="426" rx="18" fill="none" stroke="#A53E14" stroke-width="3" stroke-dasharray="12 9"/>
+  <g fill="none" stroke="#482109" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- persona izquierda -->
+    <circle cx="215" cy="150" r="52"/>
+    <path d="M168 128 q47 -45 94 0"/>
+    <path d="M110 360 q0 -125 105 -130 q105 5 105 130"/>
+    <path d="M190 232 l25 28 l25 -28"/>
+    <!-- persona derecha -->
+    <circle cx="385" cy="160" r="50"/>
+    <path d="M335 150 q10 -60 50 -62 q42 2 52 62 q4 40 -8 70"/>
+    <path d="M280 360 q0 -120 105 -125 q105 5 105 125"/>
+    <!-- delantales -->
+    <path d="M185 300 h60 v60 h-60 z" stroke-dasharray="6 6"/>
+    <path d="M355 300 h60 v60 h-60 z" stroke-dasharray="6 6"/>
+  </g>
+  <text x="300" y="405" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#A53E14">Fabiola y Alejandro · foto pendiente</text>
+</svg>

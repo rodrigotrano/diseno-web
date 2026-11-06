@@ -1,0 +1,17 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+__MACOSX/
+
+# Editores
+.vscode/
+.idea/
+nbproject/
+
+# Entregas comprimidas (se generan para Blackboard, no se versionan)
+*.zip
+*.rar
+
+# Temporales de Office
+~$*
