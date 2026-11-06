@@ -95,6 +95,13 @@ textarea:focus-visible {
 }
 
 
+/* Íconos SVG dentro del HTML (redes sociales y categorías): toman el color del texto */
+.icono {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+}
+
 /* ---------- 2. ANIMACIONES (@keyframes) ---------- */
 
 /* Ginger se balancea y "saluda" */
