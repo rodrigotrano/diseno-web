@@ -860,6 +860,7 @@ main section > figure {
 .visor figure {
     position: relative;              /* queda sobre el fondo oscuro */
     width: min(72vw, 608px);         /* 20% más pequeño que antes */
+    max-height: 92vh;
     margin: 0;
     padding: 16px;
     background-color: rgb(253, 240, 225);
@@ -871,6 +872,8 @@ main section > figure {
     display: block;
     width: 100%;
     height: auto;
+    max-height: 72vh;                /* los afiches verticales no se salen de la pantalla */
+    object-fit: contain;
     border-radius: 12px;
 }
 
