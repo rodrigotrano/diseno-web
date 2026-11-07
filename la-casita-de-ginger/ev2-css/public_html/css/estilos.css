@@ -401,7 +401,7 @@ textarea:focus-visible {
     background-color: rgb(110, 50, 18);
     background-image:
         linear-gradient(rgba(72, 33, 9, 0.55), rgba(72, 33, 9, 0.85)),
-        url("../img/fachada-local.jpg");
+        url("../img/local/loc-fachada-01.jpg");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -438,7 +438,7 @@ textarea:focus-visible {
     height: 100%;
     min-height: 240px;
     aspect-ratio: 320 / 396;         /* proporción de cada cuadro del sprite */
-    background-image: url("../img/ginger-animacion.webp");
+    background-image: url("../img/marca/mar-ginger-animacion.webp");
     background-size: 500% 100%;      /* 5 cuadros a lo ancho */
     background-repeat: no-repeat;
     filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
@@ -688,7 +688,7 @@ main section > figure {
     border-radius: 24px;
     background-image:
         linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
-        url("../img/galletas-personalizadas.jpg");
+        url("../img/tortas/carta/tor-3-leches-maracuya-01.jpg");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -945,13 +945,13 @@ main section > figure {
 .portada-contacto {
     background-image:
         linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
-        url("../img/fachada-local.jpg");
+        url("../img/local/loc-fachada-01.jpg");
 }
 
 .portada-pedido {
     background-image:
         linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
-        url("../img/ig-reunion-amigas.jpg");
+        url("../img/tortas/carta/tor-pompadour-01.jpg");
 }
 
 /* Pasos numerados para hacer un pedido */
@@ -1136,7 +1136,7 @@ main section > figure {
 .portada-nosotros {
     background-image:
         linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
-        url("../img/stand-navideno.jpg");
+        url("../img/local/loc-stand-navideno-01.jpg");
 }
 
 /* Fotos que ocupan un cuadro completo de la grilla */
@@ -1228,6 +1228,102 @@ main section > figure {
 
 .nosotros-contenido .formulario {
     margin: 24px auto 0 auto;
+}
+
+/* ---------- 6e. ACTUALIZACIÓN NOVIEMBRE ---------- */
+
+/* Horario con línea punteada entre el día y la hora */
+.horario {
+    margin: 16px 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.horario li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+}
+
+.horario li::before {
+    content: "";
+    order: 1;                        /* la línea queda entre el día y la hora */
+    flex: 1;
+    border-bottom: 2px dotted rgba(253, 240, 225, 0.4);
+}
+
+.horario li span:last-child {
+    order: 2;
+    color: rgb(255, 214, 170);
+}
+
+/* Ginger como dueño de casa en Nosotros */
+.cuadro-dueno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacto-contenido > .cuadro-dueno img {
+    width: auto;
+    max-height: 300px;
+    animation: saludar 2.4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.cuadro-dueno figcaption {
+    color: rgb(253, 240, 225);
+    font-size: 1.1rem;
+    font-style: normal;
+}
+
+.destacado {
+    padding: 12px 16px;
+    border-left: 4px solid rgb(255, 214, 170);
+    background-color: rgba(253, 240, 225, 0.08);
+    border-radius: 8px;
+}
+
+/* Etiqueta "Nuevo" en la Torta Celestial */
+.producto-nuevo h3::before {
+    content: "Nuevo";
+    order: -1;
+    padding: 2px 8px;
+    background-color: rgb(31, 122, 70);
+    border-radius: 999px;
+    color: rgb(255, 255, 255);
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.carta-contenido .subtitulo-carta {
+    margin-top: 32px;
+    color: rgb(255, 214, 170);
+    font-family: "Alegreya", Georgia, serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Galería de tortas temáticas: grilla de fotos verticales */
+.galeria-tematicas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.galeria-tematicas figure {
+    max-width: none;
+}
+
+.galeria-tematicas img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
 }
 
 /* ---------- 7. BOTONES (clase reutilizable) ---------- */
