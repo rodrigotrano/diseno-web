@@ -77,6 +77,7 @@
         <nav class="menu-categorias" aria-label="Categorías de productos">
             <p><strong>Categorías:</strong></p>
             <ul>
+                <li><a href="#favoritas">Favoritas de la casa</a></li>
                 <li><a href="#tortas">Tortas</a></li>
                 <li><a href="#tortas-tematicas">Tortas temáticas y personalizadas</a></li>
                 <li><a href="#galletas">Galletas decoradas</a></li>
@@ -86,6 +87,23 @@
                 <li><a href="#regalo">Para regalar</a></li>
             </ul>
         </nav>
+
+        <!-- Tortas destacadas: las dos que el emprendimiento entregó con afiche propio -->
+        <section id="favoritas">
+            <h2>Favoritas de la casa</h2>
+            <div class="favoritas">
+                <article class="favorita">
+                    <img src="img/tortas/afiches/afi-sra-ginger-01.jpg" alt="Afiche de la Torta Sra. Ginger, hecha con recetas caseras" width="750" height="1000">
+                    <h3>Torta Sra. Ginger</h3>
+                    <p><a class="boton" href="pedido.html">Encárgala</a> <a class="boton boton-secundario" href="#torta-sra-ginger">Ver detalle</a></p>
+                </article>
+                <article class="favorita">
+                    <img class="encuadre-derecha" src="img/tortas/afiches/afi-celestial-01.jpg" alt="Afiche de la Torta Celestial, crujiente por fuera y suave por dentro" width="1000" height="800">
+                    <h3>Torta Celestial</h3>
+                    <p><a class="boton" href="pedido.html">Encárgala</a> <a class="boton boton-secundario" href="#torta-celestial">Ver detalle</a></p>
+                </article>
+            </div>
+        </section>
 
         <!-- Tortas -->
         <section id="tortas">
@@ -184,7 +202,7 @@
                 </ul>
             </article>
 
-            <article class="producto" id="torta-sra-ginger">
+            <article class="producto producto-favorito" id="torta-sra-ginger">
                 <h3>Torta Sra. Ginger</h3>
                 <a class="ampliar" href="#ver-torta-sra-ginger" aria-label="Ver foto ampliada de Torta Sra. Ginger"><img src="img/tortas/carta/tor-sra-ginger-01.jpg" alt="Torta Sra. Ginger" width="1000" height="600"></a>
                 <p>Doble bizcocho de vainilla, hojarasca, dulce de leche y crema pastelera casera, crema de arándanos, cubierta con crema montada, coronada con una mermelada casera de arándanos.</p>

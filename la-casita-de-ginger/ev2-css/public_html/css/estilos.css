@@ -1303,6 +1303,71 @@ main section > figure {
     letter-spacing: 1px;
 }
 
+/* Etiqueta "Favorita" en la Torta Sra. Ginger */
+.producto-favorito h3::before {
+    content: "★ Favorita";
+    order: -1;
+    padding: 2px 8px;
+    background-color: rgb(255, 214, 170);
+    border-radius: 999px;
+    color: rgb(72, 33, 9);
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* Sección "Favoritas de la casa": dos afiches lado a lado */
+.favoritas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.favorita {
+    padding: 12px 12px 4px 12px;
+    background-color: rgb(253, 240, 225);
+    border: 2px solid rgb(255, 214, 170);
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.favorita:hover {
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
+.favorita img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* el afiche horizontal se encuadra a la derecha para mostrar la torta completa */
+.favorita img.encuadre-derecha {
+    object-position: right center;
+}
+
+.carta-contenido .favorita h3 {
+    margin: 10px 0 0 0;
+    color: rgb(72, 33, 9);
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.carta-contenido .favorita .boton {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+}
+
+.carta-contenido .favorita .boton-secundario {
+    border-color: rgb(165, 62, 20);
+    color: rgb(165, 62, 20);
+}
+
 .carta-contenido .subtitulo-carta {
     margin-top: 32px;
     color: rgb(255, 214, 170);
