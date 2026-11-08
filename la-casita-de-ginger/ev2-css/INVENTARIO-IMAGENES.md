@@ -29,13 +29,13 @@ El número final (`-01`, `-02`…) permite agregar más fotos del mismo producto
 |---|---|---|---|---|---|
 | `img/galletas/gal-personalizadas-01.jpg` | Galletas personalizadas (primera comunión) | 700×657 | 88 KB | productos.html, pedido.html | Material inicial / Instagram |
 | `img/galletas/gal-tematicas-robots-01.jpg` | Galletas temáticas de robots | 700×687 | 71 KB | nosotros.html, productos.html | Material inicial / Instagram |
-| `img/instagram/ig-clientes-chimenea-01.jpg` | Clientes junto a la chimenea (Instagram) | 800×525 | 75 KB | contacto.html | Material inicial / Instagram |
+| `img/instagram/ig-clientes-chimenea-01.jpg` | Clientes junto a la chimenea (Instagram) | 800×525 | 75 KB | contacto.html, nosotros.html | Material inicial / Instagram |
 | `img/instagram/ig-merengue-01.jpg` | Torta con merengue tostado (Instagram) | 800×379 | 41 KB | contacto.html, pedido.html | Material inicial / Instagram |
 | `img/instagram/ig-once-amigas-01.jpg` | Grupo de amigas tomando once (Instagram) | 800×595 | 89 KB | contacto.html | Material inicial / Instagram |
 | `img/instagram/ig-te-casita-01.jpg` | Té y decoración de casita (Instagram) | 800×403 | 61 KB | contacto.html | Material inicial / Instagram |
 | `img/local/loc-fachada-01.jpg` | Fachada del local | 696×523 | 107 KB | index.html, nosotros.html, estilos.css | Material inicial / Instagram |
 | `img/local/loc-stand-navideno-01.jpg` | Stand navideño de madera | 450×600 | 66 KB | estilos.css | Material inicial / Instagram |
-| `img/marca/mar-caja-regalo-01.jpg` | Caja de regalo con forma de casita | 800×638 | 102 KB | productos.html, nosotros.html | Material inicial / Instagram |
+| `img/marca/mar-caja-regalo-01.jpg` | Caja de regalo con forma de casita | 800×638 | 102 KB | productos.html | Material inicial / Instagram |
 | `img/marca/mar-ginger-animacion.webp` | Sprite con 5 poses de Ginger (animación del inicio) | 1600×396 | 70 KB | index.html, estilos.css | Material inicial / Instagram |
 | `img/marca/mar-ginger-patinadora.webp` | Galletita patinadora (familia de Ginger) | 387×500 | 51 KB | nosotros.html | Material inicial / Instagram |
 | `img/marca/mar-ginger-saludando.webp` | Ginger saludando (menú, Nuestra historia, dueño de casa) | 481×700 | 36 KB | index.html, contacto.html, nosotros.html, productos.html, pedido.html | Material inicial / Instagram |
