@@ -1721,6 +1721,16 @@ main section > figure {
     position: relative;
 }
 
+/* Ajuste para Safari del iPhone: el campo de fecha no debe ser
+   más ancho que el formulario */
+.formulario input[type="date"] {
+    display: block;
+    min-width: 0;
+    min-height: 44px;                    /* alto cómodo para tocar con el dedo */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 /* La casilla real queda oculta visualmente; la tarjeta (label) la activa */
 .agregar {
     position: absolute;
@@ -1734,7 +1744,7 @@ main section > figure {
 
 .item-tarjeta {
     display: grid;
-    grid-template-columns: 72px 1fr 36px;
+    grid-template-columns: 72px minmax(0, 1fr) 36px;   /* minmax evita que el texto ensanche la tarjeta */
     align-items: center;
     gap: 12px;
     padding: 10px;
