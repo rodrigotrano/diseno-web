@@ -29,7 +29,7 @@ El número final (`-01`, `-02`…) permite agregar más fotos del mismo producto
 |---|---|---|---|---|---|
 | `img/galletas/gal-personalizadas-01.jpg` | Galletas personalizadas (primera comunión) | 700×657 | 88 KB | productos.html, pedido.html | Material inicial / Instagram |
 | `img/galletas/gal-tematicas-robots-01.jpg` | Galletas temáticas de robots | 700×687 | 71 KB | nosotros.html, productos.html | Material inicial / Instagram |
-| `img/instagram/ig-clientes-chimenea-01.jpg` | Clientes junto a la chimenea (Instagram) | 800×525 | 75 KB | contacto.html, nosotros.html | Material inicial / Instagram |
+| `img/instagram/ig-clientes-chimenea-01.jpg` | Clientes junto a la chimenea (Instagram) | 800×525 | 75 KB | contacto.html | Material inicial / Instagram |
 | `img/instagram/ig-merengue-01.jpg` | Torta con merengue tostado (Instagram) | 800×379 | 41 KB | contacto.html, pedido.html | Material inicial / Instagram |
 | `img/instagram/ig-once-amigas-01.jpg` | Grupo de amigas tomando once (Instagram) | 800×595 | 89 KB | contacto.html | Material inicial / Instagram |
 | `img/instagram/ig-te-casita-01.jpg` | Té y decoración de casita (Instagram) | 800×403 | 61 KB | contacto.html | Material inicial / Instagram |
