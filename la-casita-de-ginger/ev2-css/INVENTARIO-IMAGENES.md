@@ -15,7 +15,6 @@
 | `pas-` | `img/pasteleria/` | Kuchen, pies, tartaletas |
 | `gal-` | `img/galletas/` | Galletas decoradas |
 | `ig-`  | `img/instagram/` | Fotos tomadas del Instagram del emprendimiento |
-| `doc-` | `img/documentos/` | Documentos entregados (carta de precios) |
 
 El número final (`-01`, `-02`…) permite agregar más fotos del mismo producto.
 
@@ -28,7 +27,6 @@ El número final (`-01`, `-02`…) permite agregar más fotos del mismo producto
 
 | Archivo | Descripción | Tamaño | Peso | Se usa en | Origen |
 |---|---|---|---|---|---|
-| `img/documentos/doc-carta-tortas-01.jpg` | Carta de tortas con precios (imagen original del emprendimiento) | 1200×800 | 219 KB | productos.html | Material inicial / Instagram |
 | `img/galletas/gal-personalizadas-01.jpg` | Galletas personalizadas (primera comunión) | 700×657 | 88 KB | productos.html, pedido.html | Material inicial / Instagram |
 | `img/galletas/gal-tematicas-robots-01.jpg` | Galletas temáticas de robots | 700×687 | 71 KB | nosotros.html, productos.html | Material inicial / Instagram |
 | `img/instagram/ig-clientes-chimenea-01.jpg` | Clientes junto a la chimenea (Instagram) | 800×525 | 75 KB | contacto.html | Material inicial / Instagram |
