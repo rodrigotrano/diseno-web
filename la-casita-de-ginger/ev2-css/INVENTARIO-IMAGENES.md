@@ -35,10 +35,10 @@ El número final (`-01`, `-02`…) permite agregar más fotos del mismo producto
 | `img/instagram/ig-te-casita-01.jpg` | Té y decoración de casita (Instagram) | 800×403 | 61 KB | contacto.html | Material inicial / Instagram |
 | `img/local/loc-fachada-01.jpg` | Fachada del local | 696×523 | 107 KB | index.html, nosotros.html, estilos.css | Material inicial / Instagram |
 | `img/local/loc-stand-navideno-01.jpg` | Stand navideño de madera | 450×600 | 66 KB | estilos.css | Material inicial / Instagram |
-| `img/marca/mar-caja-regalo-01.jpg` | Caja de regalo con forma de casita | 800×638 | 102 KB | productos.html | Material inicial / Instagram |
+| `img/marca/mar-caja-regalo-01.jpg` | Caja de regalo con forma de casita | 800×638 | 102 KB | productos.html, nosotros.html | Material inicial / Instagram |
 | `img/marca/mar-ginger-animacion.webp` | Sprite con 5 poses de Ginger (animación del inicio) | 1600×396 | 70 KB | index.html, estilos.css | Material inicial / Instagram |
 | `img/marca/mar-ginger-patinadora.webp` | Galletita patinadora (familia de Ginger) | 387×500 | 51 KB | nosotros.html | Material inicial / Instagram |
-| `img/marca/mar-ginger-saludando.webp` | Ginger saludando (menú, Nosotros, dueño de casa) | 481×700 | 36 KB | index.html, contacto.html, nosotros.html, productos.html, pedido.html | Material inicial / Instagram |
+| `img/marca/mar-ginger-saludando.webp` | Ginger saludando (menú, Nuestra historia, dueño de casa) | 481×700 | 36 KB | index.html, contacto.html, nosotros.html, productos.html, pedido.html | Material inicial / Instagram |
 | `img/marca/mar-logo.webp` | Logo de La Casita de Ginger | 400×400 | 55 KB | index.html, contacto.html, nosotros.html, productos.html, pedido.html | Material inicial / Instagram |
 | `img/pasteleria/pas-kuchen-frutillas-01.jpg` | Kuchen de frutillas | 1000×667 | 104 KB | productos.html | Foto enviada nov-2026 |
 | `img/pasteleria/pas-pie-manzana-01.jpg` | Pie de manzana canela | 1000×667 | 122 KB | productos.html | Foto enviada nov-2026 |

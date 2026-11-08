@@ -1195,6 +1195,13 @@ main section > figure {
     transform-origin: bottom center;
 }
 
+.ginger-saluda figcaption {
+    margin-top: 8px;
+    color: rgb(253, 240, 225);
+    font-style: normal;
+    text-align: center;
+}
+
 /* Ilustración flotando a la derecha del listado */
 .nosotros-contenido .patinadora {
     float: right;
@@ -1262,22 +1269,22 @@ main section > figure {
     color: rgb(255, 214, 170);
 }
 
-/* Ginger como dueño de casa en Nosotros */
-.cuadro-dueno {
+/* Imagen de la casita junto a la historia en Nuestra historia */
+.cuadro-foto {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 12px;
 }
 
-.contacto-contenido > .cuadro-dueno img {
-    width: auto;
-    max-height: 300px;
-    animation: saludar 2.4s ease-in-out infinite;
-    transform-origin: bottom center;
+.contacto-contenido > .cuadro-foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
 }
 
-.cuadro-dueno figcaption {
+.cuadro-foto figcaption {
     color: rgb(253, 240, 225);
     font-size: 1.1rem;
     font-style: normal;
