@@ -7,7 +7,8 @@ Proyecto desarrollado de forma individual en la asignatura Diseño Web (IPLACEX)
 |---|---|---|
 | [`ev1-html/`](ev1-html/public_html/index.html) | N°1 – Fundamentos de desarrollo web | Estructura semántica en HTML, sin CSS (4 páginas) |
 | [`ev2-css/`](ev2-css/public_html/index.html) | N°2 – Diseño web y CSS | Hoja de estilos externa, Flexbox/Grid, animaciones y página de pedidos (5 páginas). Ver [inventario de imágenes](ev2-css/INVENTARIO-IMAGENES.md) |
-| [`ev3-js/`](ev3-js/public_html/index.html) | N°3 – Introducción a JavaScript | Diseño propio con JavaScript: carrito con resumen y total, validación del formulario (`blur`/`submit`), pedido por WhatsApp y horario «abierto ahora» |
+| [`ev3-template/`](ev3-template/public_html/index.html) | N°3 – Template y JavaScript (**versión evaluada**) | Migración al template Assan Beauty Spa (Bootstrap 4) con el JavaScript del pedido y del horario |
+| [`ev3-js/`](ev3-js/public_html/index.html) | N°3 – Diseño propio (complemento) | Diseño propio con JavaScript: carrito con resumen y total, validación del formulario (`blur`/`submit`), pedido por WhatsApp y horario «abierto ahora» |
 
 ## Cómo verlo
 Descarga el repositorio y abre `public_html/index.html` de la evaluación que quieras revisar en el navegador.
