@@ -1,0 +1,2252 @@
+/* ==========================================================
+   La Casita de Ginger - Hoja de estilos principal
+   Evaluación N°2 - Diseño Web (IPLACEX)
+
+   Diseño inspirado en la estructura de portadas de cafeterías
+   temáticas: marco de color, recuadros grandes con esquinas
+   redondeadas, menú flotante y menú completo a pantalla completa.
+
+   Paleta entregada por el emprendimiento:
+     Vainilla  rgb(253, 240, 225)  -> fondos claros y textos sobre café
+     Café      rgb(72, 33, 9)      -> marco, textos y pie de página
+     Caramelo  rgb(165, 62, 20)    -> títulos, botones y detalles
+   ========================================================== */
+
+
+/* ---------- 1. ESTILOS GENERALES (selectores de elemento) ---------- */
+
+* {
+    box-sizing: border-box;          /* el ancho incluye relleno y borde */
+}
+
+html {
+    scroll-behavior: smooth;         /* desplazamiento suave a las secciones */
+}
+
+body {
+    margin: 0;
+    padding: 110px 16px 16px 16px;   /* espacio para el encabezado flotante */
+    background-color: rgb(72, 33, 9);       /* marco café alrededor del sitio */
+    color: rgb(72, 33, 9);
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+    color: rgb(165, 62, 20);
+    line-height: 1.15;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 3px dotted rgb(165, 62, 20);   /* detalle tipo "glaseado" */
+}
+
+h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: rgb(165, 62, 20);
+}
+
+a {
+    color: rgb(165, 62, 20);
+    font-weight: 700;
+}
+
+a:hover {
+    color: rgb(72, 33, 9);
+}
+
+img {
+    max-width: 100%;                 /* las imágenes nunca se salen de su caja */
+    height: auto;
+    border-radius: 12px;
+}
+
+figure {
+    margin: 0 0 16px 0;
+}
+
+figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Contorno visible al navegar con teclado (accesibilidad) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgb(46, 110, 64);
+    outline-offset: 2px;
+}
+
+
+/* Íconos SVG dentro del HTML (redes sociales y categorías): toman el color del texto */
+.icono {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+}
+
+/* ---------- 2. ANIMACIONES (@keyframes) ---------- */
+
+/* Ginger se balancea y "saluda" */
+@keyframes saludar {
+    0%, 100% { transform: rotate(-5deg) translateY(0); }
+    50%      { transform: rotate(5deg) translateY(-14px); }
+}
+
+/* Los elementos aparecen subiendo suavemente */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* La nieve cae: se desplaza la posición del fondo */
+@keyframes nevar {
+    from { background-position: 0 0, 0 0; }
+    to   { background-position: 40px 600px, -30px 400px; }
+}
+
+/* Secuencia de poses (8 s): corre alternando dos pasos, se detiene,
+   vuelve a correr, se detiene con las manos en la cintura y saluda.
+   Cuadros del sprite: 0% corriendo A, 25% parado, 50% corriendo B,
+   75% manos en la cintura, 100% saludando. */
+@keyframes poses {
+    0%   { background-position: 0% 0; }
+    3%   { background-position: 50% 0; }
+    6%   { background-position: 0% 0; }
+    9%   { background-position: 50% 0; }
+    12%  { background-position: 0% 0; }
+    15%  { background-position: 50% 0; }
+    18%  { background-position: 0% 0; }
+    21%  { background-position: 25% 0; }     /* se detiene */
+    30%  { background-position: 0% 0; }     /* vuelve a correr */
+    33%  { background-position: 50% 0; }
+    36%  { background-position: 0% 0; }
+    39%  { background-position: 50% 0; }
+    42%  { background-position: 0% 0; }
+    45%  { background-position: 50% 0; }
+    48%  { background-position: 75% 0; }    /* manos en la cintura */
+    58%  { background-position: 100% 0; }   /* saluda hasta el final */
+    100% { background-position: 100% 0; }
+}
+
+/* Ginger cruza corriendo desde la izquierda y se detiene al centro */
+@keyframes recorrido {
+    0%   { transform: translateX(-460px); opacity: 0; }
+    3%   { opacity: 1; }
+    21%  { transform: translateX(-200px); }
+    30%  { transform: translateX(-200px); }
+    48%  { transform: translateX(0); }
+    95%  { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(0); opacity: 0; }
+}
+
+/* El menú completo aparece con un fundido */
+@keyframes fundido {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+/* ---------- 3. ENCABEZADO FLOTANTE (selectores de clase) ---------- */
+
+.encabezado {
+    position: fixed;                 /* queda flotando arriba al bajar */
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);     /* lo centra horizontalmente */
+    z-index: 50;
+    display: flex;                   /* botón, logo, nombre y menú en una fila */
+    align-items: center;
+    gap: 12px;
+    padding: 8px 8px 8px 8px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    width: max-content;              /* el ancho se ajusta a su contenido */
+}
+
+.encabezado > * {
+    flex-shrink: 0;                  /* ningún elemento se aplasta */
+}
+
+/* Botón de tres líneas ("hamburguesa") */
+.boton-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 11px;
+    background-color: rgb(165, 62, 20);
+    border-radius: 10px;
+}
+
+.boton-menu span {
+    display: block;
+    height: 2px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 2px;
+}
+
+.logo {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+/* Nombre pequeño, como en la referencia */
+.marca {
+    margin: 0;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.marca span {
+    display: block;                  /* el lema va bajo el nombre */
+}
+
+.marca strong {
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.menu-principal ul {
+    display: flex;                   /* enlaces en horizontal */
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0 0 0 8px;
+    list-style: none;
+}
+
+.menu-principal a {
+    display: block;
+    padding: 8px 12px;
+    color: rgb(72, 33, 9);
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.menu-principal a:hover {
+    background-color: rgba(165, 62, 20, 0.12);
+}
+
+.menu-principal a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+}
+
+/* El último enlace es un botón destacado (como "Reservar") */
+.menu-principal .boton {
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: rgb(253, 240, 225);
+}
+
+
+/* ---------- 4. MENÚ COMPLETO A PANTALLA COMPLETA ---------- */
+
+/* Oculto por defecto; se muestra cuando la URL termina en #menu (:target) */
+.menu-completo {
+    position: fixed;
+    inset: 16px;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 6%;
+    padding: 40px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 24px;
+    overflow-y: auto;
+}
+
+.menu-completo:target {
+    display: flex;
+    animation: fundido 0.4s ease;
+}
+
+.cerrar {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgb(72, 33, 9);
+    border-radius: 10px;
+    color: rgb(72, 33, 9);
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cerrar:hover {
+    background-color: rgb(72, 33, 9);
+    color: rgb(253, 240, 225);
+}
+
+/* Ginger a un costado del menú, saludando */
+.menu-ginger {
+    width: 28%;
+    max-width: 320px;
+    margin: 0;
+}
+
+.menu-ginger img {
+    animation: saludar 2.4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.menu-lista {
+    text-align: center;
+}
+
+.menu-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.menu-lista ul {
+    margin: 8px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-lista a {
+    display: inline-block;
+    padding: 2px 0;
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgb(72, 33, 9);
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s, letter-spacing 0.3s;
+}
+
+.menu-lista a:hover {
+    color: rgb(165, 62, 20);
+    letter-spacing: 6px;             /* las letras se separan al pasar el mouse */
+}
+
+
+/* ---------- 5. PORTADA DEL INICIO (sin desplazamiento) ---------- */
+
+/* En el inicio todo cabe en una sola pantalla */
+.inicio {
+    height: 100vh;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+}
+
+/* El encabezado se centra sobre el recuadro grande */
+.inicio .encabezado {
+    left: calc(16px + (100% - 48px) * 0.75 / 2);
+}
+
+.portada {
+    flex: 1;
+    min-height: 0;
+    display: grid;                   /* recuadro grande + columna de tarjetas */
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);   /* 75% recuadro, 25% tarjetas */
+    gap: 16px;
+}
+
+/* Recuadro grande de bienvenida */
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;                       /* ocupa toda su celda de la grilla */
+    padding: 110px 24px 40px 24px;
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: rgb(110, 50, 18);
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.55), rgba(72, 33, 9, 0.85)),
+        url("../img/local/loc-fachada-01.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+/* Capa de nieve animada sobre la foto */
+.nieve {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.9) 2px, transparent 3px),
+        radial-gradient(rgba(255, 255, 255, 0.6) 1.5px, transparent 2px);
+    background-size: 120px 120px, 70px 70px;
+    animation: nevar 14s linear infinite;
+}
+
+/* Contenedor de Ginger: ocupa todo el ancho y lo centra.
+   ".hero > .hero-ginger" es más específico que "main section > figure",
+   así anula el float y el ancho de 40% de las otras imágenes. */
+.hero > .hero-ginger {
+    position: relative;              /* queda por encima de la nieve */
+    display: flex;
+    justify-content: center;
+    float: none;
+    width: 100%;
+    height: 46%;
+    margin: 0 0 8px 0;
+}
+
+/* Animación por cuadros ("sprite"): una sola imagen con 5 poses de Ginger.
+   Cambiando background-position se muestra una pose a la vez. */
+.ginger-animado {
+    height: 100%;
+    min-height: 240px;
+    aspect-ratio: 320 / 396;         /* proporción de cada cuadro del sprite */
+    background-image: url("../img/marca/mar-ginger-animacion.webp");
+    background-size: 500% 100%;      /* 5 cuadros a lo ancho */
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+    animation:
+        poses 8s steps(1, end) infinite,   /* cambia de pose sin transición */
+        recorrido 8s linear infinite;      /* avanza mientras corre */
+}
+
+.hero-texto {
+    position: relative;
+    animation: aparecer 1s ease both;
+}
+
+.frase-marca {
+    margin: 0;
+    color: rgb(253, 240, 225);
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 0;
+    color: rgb(253, 240, 225);
+}
+
+.saludo {
+    display: block;
+    font-size: 7rem;
+    font-weight: 500;
+    letter-spacing: 8px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.saludo-sub {
+    display: block;
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.lema {
+    margin: 6px 0 0 0;
+    color: rgb(255, 214, 170);
+}
+
+/* Botones redondos de redes sociales en la portada (sin colores de marca) */
+.redes-circulos {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.redes-circulos a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 50%;
+    color: rgb(72, 33, 9);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.redes-circulos a:hover {
+    transform: scale(1.12);
+    background-color: rgb(255, 255, 255);
+    color: rgb(72, 33, 9);
+}
+
+/* Columna de tres tarjetas con imagen */
+.tarjetas {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 16px;
+    min-height: 0;
+    margin: 0;
+}
+
+.tarjeta {
+    position: relative;
+    display: block;
+    overflow: hidden;                /* recorta la imagen al hacer zoom */
+    border-radius: 24px;
+    animation: aparecer 0.8s ease both;
+}
+
+.tarjeta:nth-child(2) { animation-delay: 0.15s; }
+.tarjeta:nth-child(3) { animation-delay: 0.3s; }
+
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.6s ease; /* transición del zoom */
+}
+
+.tarjeta:hover img {
+    transform: scale(1.08);
+}
+
+/* Etiqueta en la esquina inferior derecha */
+.tarjeta-etiqueta {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px 10px 18px;
+    background-color: rgb(72, 33, 9);
+    border-top-left-radius: 20px;
+    color: rgb(253, 240, 225);
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.05rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.flecha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 50%;
+    color: rgb(72, 33, 9);
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover .flecha {
+    transform: translateX(4px);
+}
+
+/* En el inicio el pie es una línea pequeña */
+.inicio .pie {
+    padding: 0;
+}
+
+.inicio .creditos {
+    font-size: 0.75rem;
+}
+
+
+/* ---------- 6. PÁGINAS INTERNAS ---------- */
+
+main > section,
+main > nav,
+.portada-interna {
+    max-width: 1100px;
+    margin-left: auto;               /* márgenes automáticos = centrado */
+    margin-right: auto;
+}
+
+/* En la portada del inicio el recuadro y las tarjetas ocupan toda su celda
+   de la grilla, sin el límite de 1100px (más específico que la regla anterior) */
+.portada > .hero,
+.portada > .tarjetas {
+    max-width: none;
+    margin: 0;
+}
+
+.portada-interna {
+    padding: 24px 0 32px 0;
+    text-align: center;
+    animation: aparecer 0.8s ease both;
+}
+
+.portada-interna h1 {
+    margin-bottom: 8px;
+    color: rgb(253, 240, 225);
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.portada-interna p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgb(253, 240, 225);
+    font-size: 1.1rem;
+}
+
+/* Cada sección es un recuadro vainilla con esquinas redondeadas */
+main section {
+    display: flow-root;              /* contiene las imágenes flotantes */
+    margin-bottom: 16px;
+    padding: 40px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 24px;
+}
+
+/* Imágenes de las secciones: flotan a la derecha del texto */
+main section > figure {
+    float: right;
+    width: 40%;
+    margin: 0 0 16px 24px;
+}
+
+/* En la sección de Ginger la imagen va a la izquierda */
+#ginger > figure {
+    float: left;
+    margin: 0 24px 16px 0;
+}
+
+
+
+/* ---------- 6b. PÁGINA DE PRODUCTOS COMO CARTA ---------- */
+
+.pagina-carta {
+    padding-top: 16px;               /* la carta parte desde arriba */
+}
+
+
+.carta {
+    display: grid;                   /* dos columnas: portada y contenido */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+/* Portada fija: queda quieta mientras se recorre la carta */
+.carta-portada {
+    position: sticky;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: calc(100vh - 32px);
+    margin: 0;
+    padding: 40px;
+    border-radius: 24px;
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        url("../img/tortas/carta/tor-3-leches-maracuya-01.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.carta-portada h1 {
+    margin: 0 0 12px 0;
+    color: rgb(253, 240, 225);
+    font-size: 5rem;
+    font-weight: 500;
+    letter-spacing: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.carta-portada p {
+    max-width: 520px;
+    margin: 0;
+    color: rgb(253, 240, 225);
+}
+
+/* Contenido de la carta, entre dos líneas finas verticales */
+.carta-contenido {
+    padding: 110px 7% 40px 7%;       /* deja espacio al encabezado flotante */
+    border-left: 1px solid rgba(253, 240, 225, 0.25);
+    border-right: 1px solid rgba(253, 240, 225, 0.25);
+    color: rgb(253, 240, 225);
+}
+
+.carta-contenido > nav,
+.carta-contenido > section {
+    max-width: none;
+}
+
+/* Las secciones de la carta no son recuadros: van sobre el fondo café */
+.carta-contenido section {
+    margin: 0 0 56px 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+
+/* Títulos centrados con líneas decorativas a los lados */
+.carta-contenido h2 {
+    display: flex;                   /* texto y líneas decorativas en una fila */
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border: none;
+    color: rgb(253, 240, 225);
+    font-size: 1.9rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.carta-contenido h2::before,
+.carta-contenido h2::after {
+    content: "";
+    display: inline-block;
+    flex: 0 0 36px;
+    height: 1px;
+    background-color: rgb(255, 214, 170);
+}
+
+.carta-contenido section > p {
+    text-align: center;
+}
+
+.carta-contenido a {
+    color: rgb(255, 214, 170);
+}
+
+.carta-contenido .boton {
+    color: rgb(255, 255, 255);
+}
+
+.carta-contenido .boton-secundario {
+    border-color: rgb(253, 240, 225);
+    color: rgb(253, 240, 225);
+}
+
+/* Cada producto: foto cuadrada a la izquierda y texto a la derecha */
+.carta-contenido .grilla-productos {
+    flex-direction: column;
+    gap: 32px;
+}
+
+.carta-contenido .producto {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    column-gap: 22px;
+    flex: none;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.carta-contenido .producto:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Enlace que envuelve la miniatura: al hacer clic abre la foto ampliada */
+.carta-contenido .ampliar {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    cursor: zoom-in;
+}
+
+/* Lupa "+" que indica que la foto se puede ampliar */
+.carta-contenido .ampliar::after {
+    content: "+";
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 28px;
+    height: 28px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 50%;
+    color: rgb(72, 33, 9);
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    opacity: 0.85;
+}
+
+.carta-contenido .producto img {
+    width: 130px;
+    height: 130px;
+    margin: 0;
+    border-radius: 12px;
+    transition: transform 0.4s;
+}
+
+.carta-contenido .producto:hover img {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* ---- Visor de fotos ampliadas (lightbox) ---- */
+.visor {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;                   /* oculto hasta que se elige */
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.visor:target {
+    display: flex;                   /* se muestra cuando la URL termina en #ver-... */
+    animation: fundido 0.3s ease;
+}
+
+/* Fondo oscuro: al hacer clic en él se cierra */
+.visor-fondo {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(30, 14, 4, 0.88);
+    cursor: zoom-out;
+}
+
+.visor figure {
+    position: relative;              /* queda sobre el fondo oscuro */
+    width: min(72vw, 608px);         /* 20% más pequeño que antes */
+    max-height: 92vh;
+    margin: 0;
+    padding: 16px;
+    background-color: rgb(253, 240, 225);
+    border-radius: 20px;
+    animation: aparecer 0.35s ease;
+}
+
+.visor figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 72vh;                /* los afiches verticales no se salen de la pantalla */
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* selector más específico para ganarle al color de .carta-contenido figcaption */
+.carta-contenido .visor figcaption {
+    margin-top: 12px;
+    color: rgb(72, 33, 9);
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.visor .cerrar {
+    top: 24px;
+    left: auto;
+    right: 24px;
+    border-color: rgb(253, 240, 225);
+    color: rgb(253, 240, 225);
+}
+
+/* Nombre del producto con línea punteada, como en una carta */
+.carta-contenido .producto h3 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 4px 0 6px 0;
+    color: rgb(255, 214, 170);
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.carta-contenido .producto h3::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px dotted rgba(253, 240, 225, 0.45);
+}
+
+.carta-contenido .producto p {
+    margin: 0 0 8px 0;
+    font-size: 0.92rem;
+}
+
+/* Precios en una línea */
+.carta-contenido .producto ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    padding: 0;
+    background: none;
+    font-size: 0.92rem;
+}
+
+.carta-contenido .producto strong {
+    color: rgb(255, 214, 170);
+}
+
+.carta-contenido figcaption {
+    color: rgb(253, 240, 225);
+}
+
+.carta-contenido li {
+    margin-bottom: 4px;
+}
+
+/* ---------- 6c. PÁGINA DE CONTACTO EN CUADROS ---------- */
+
+/* Misma portada fija de la carta, con otra foto de fondo */
+.portada-contacto {
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        url("../img/local/loc-fachada-01.jpg");
+}
+
+.portada-pedido {
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        url("../img/tortas/carta/tor-pompadour-01.jpg");
+}
+
+/* Pasos numerados para hacer un pedido */
+.pasos {
+    margin: 0;
+    padding-left: 24px;
+    text-align: left;
+}
+
+.pasos li {
+    margin-bottom: 10px;
+}
+
+.pasos li::marker {
+    color: rgb(255, 214, 170);
+    font-weight: 700;
+}
+
+/* Grilla de cuadros: dos columnas */
+.contacto-contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    padding-top: 96px;               /* espacio para el encabezado flotante */
+    color: rgb(253, 240, 225);
+}
+
+/* Cuadro con borde fino y esquinas redondeadas */
+.contacto-contenido .cuadro {
+    max-width: none;
+    margin: 0;
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(253, 240, 225, 0.35);
+    border-radius: 24px;
+    text-align: center;
+}
+
+.contacto-contenido h2 {
+    border: none;
+    color: rgb(253, 240, 225);
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.contacto-contenido a {
+    color: rgb(255, 214, 170);
+}
+
+.contacto-contenido .boton {
+    color: rgb(255, 255, 255);
+}
+
+/* .boton.boton-whatsapp tiene más especificidad que .boton, por eso gana */
+.boton.boton-whatsapp {
+    background-color: rgb(31, 122, 70);
+    border-color: rgb(31, 122, 70);
+}
+
+/* Cuatro fotos en una grilla de 2 x 2 */
+.fotos-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.fotos-contacto img {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.4s;
+}
+
+.fotos-contacto a {
+    display: block;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.fotos-contacto img:hover {
+    transform: scale(1.04);
+}
+
+.fotos-instagram {
+    grid-column: 1 / -1;             /* ocupa las dos columnas */
+    margin: 0;
+    text-align: center;
+}
+
+.fotos-instagram a {
+    display: inline;
+    color: rgb(255, 214, 170);
+}
+
+/* Cuadro del mapa: el mapa ocupa todo el cuadro */
+.contacto-contenido .cuadro-mapa {
+    position: relative;
+    min-height: 380px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.cuadro-mapa .mapa {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+/* Etiqueta "Cómo llegar" en la esquina, igual que las tarjetas del inicio */
+.cuadro-mapa .tarjeta-etiqueta {
+    color: rgb(253, 240, 225);
+    text-decoration: none;
+}
+
+/* Datos de contacto: título pequeño y valor en la misma fila */
+.datos-contacto {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px 16px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.datos-contacto dt {
+    color: rgb(255, 214, 170);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.9;
+    text-transform: uppercase;
+}
+
+.datos-contacto dd {
+    margin: 0;
+    overflow-wrap: anywhere;         /* el correo largo puede cortarse en celular */
+}
+
+.datos-contacto address {
+    font-style: normal;
+}
+
+.nota {
+    font-size: 0.9rem;
+}
+
+/* El formulario ocupa las dos columnas */
+.contacto-contenido .cuadro-ancho {
+    grid-column: 1 / -1;
+}
+
+.cuadro-ancho .formulario {
+    margin: 24px auto 0 auto;
+    text-align: left;
+}
+
+.contacto-contenido .formulario fieldset {
+    border-color: rgba(253, 240, 225, 0.35);
+}
+
+.contacto-contenido .formulario legend {
+    color: rgb(255, 214, 170);
+}
+
+.contacto-contenido .acciones {
+    justify-content: center;
+}
+
+.contacto-contenido .boton-secundario {
+    border-color: rgb(253, 240, 225);
+    color: rgb(253, 240, 225);
+}
+
+/* ---------- 6d. PÁGINA NOSOTROS (reutiliza los cuadros de contacto) ---------- */
+
+.portada-nosotros {
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        url("../img/local/loc-stand-navideno-01.jpg");
+}
+
+/* Fotos que ocupan un cuadro completo de la grilla */
+.foto-cuadro {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.nosotros-contenido .cuadro p {
+    font-size: 0.98rem;
+}
+
+.nosotros-contenido .cuadro-ancho {
+    text-align: left;
+}
+
+.nosotros-contenido .cuadro-ancho h2 {
+    text-align: center;
+}
+
+/* Imagen provisoria: se muestra completa, sin recortar */
+.foto-cuadro.boceto {
+    object-fit: contain;
+    background-color: rgb(253, 240, 225);
+}
+
+/* Estrellitas decorativas sobre Misión y Visión */
+.adorno {
+    margin: 0 0 4px 0;
+    color: rgb(255, 214, 170);
+    letter-spacing: 6px;
+}
+
+/* Cuadro de Ginger: imagen animada a la izquierda y texto a la derecha */
+.cuadro-ginger {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.cuadro-ginger > figure.ginger-saluda {
+    flex: 0 0 200px;
+    float: none;
+    width: auto;
+    margin: 0;
+}
+
+.ginger-saluda img {
+    animation: saludar 2.4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.ginger-saluda figcaption {
+    margin-top: 8px;
+    color: rgb(253, 240, 225);
+    font-style: normal;
+    text-align: center;
+}
+
+/* Ilustración flotando a la derecha del listado */
+.nosotros-contenido .patinadora {
+    float: right;
+    width: 200px;
+    margin: 0 0 16px 24px;
+}
+
+.nosotros-contenido .patinadora figcaption {
+    color: rgb(253, 240, 225);
+}
+
+.nosotros-contenido .identidad {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+}
+
+.nosotros-contenido .identidad dt {
+    color: rgb(255, 214, 170);
+}
+
+.nosotros-contenido .identidad dd {
+    margin: 0;
+    border-left-color: rgba(253, 240, 225, 0.3);
+}
+
+.nosotros-contenido .testimonio {
+    color: rgb(72, 33, 9);
+}
+
+.nosotros-contenido .testimonio h3 {
+    color: rgb(165, 62, 20);
+}
+
+.nosotros-contenido .formulario {
+    margin: 24px auto 0 auto;
+}
+
+/* ---------- 6e. ACTUALIZACIÓN NOVIEMBRE ---------- */
+
+/* Horario con línea punteada entre el día y la hora */
+.horario {
+    margin: 16px 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.horario li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+}
+
+.horario li::before {
+    content: "";
+    order: 1;                        /* la línea queda entre el día y la hora */
+    flex: 1;
+    border-bottom: 2px dotted rgba(253, 240, 225, 0.4);
+}
+
+.horario li span:last-child {
+    order: 2;
+    color: rgb(255, 214, 170);
+}
+
+/* Historia en dos columnas de texto (en celular queda en una) */
+.historia-texto {
+    columns: 2;
+    column-gap: 40px;
+    column-rule: 1px solid rgba(253, 240, 225, 0.25);
+}
+
+.historia-texto p {
+    margin-top: 0;
+    break-inside: avoid;             /* un párrafo no se corta entre columnas */
+}
+
+.destacado {
+    padding: 12px 16px;
+    border-left: 4px solid rgb(255, 214, 170);
+    background-color: rgba(253, 240, 225, 0.08);
+    border-radius: 8px;
+}
+
+/* Etiqueta "Nuevo" en la Torta Celestial */
+.producto-nuevo h3::before {
+    content: "Nuevo";
+    order: -1;
+    padding: 2px 8px;
+    background-color: rgb(31, 122, 70);
+    border-radius: 999px;
+    color: rgb(255, 255, 255);
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* Etiqueta "Favorita" en la Torta Sra. Ginger */
+.producto-favorito h3::before {
+    content: "★ Favorita";
+    order: -1;
+    padding: 2px 8px;
+    background-color: rgb(255, 214, 170);
+    border-radius: 999px;
+    color: rgb(72, 33, 9);
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* Sección "Favoritas de la casa": dos afiches lado a lado */
+.favoritas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.favorita {
+    padding: 12px 12px 4px 12px;
+    background-color: rgb(253, 240, 225);
+    border: 2px solid rgb(255, 214, 170);
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.favorita:hover {
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
+.favorita img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* el afiche horizontal se encuadra a la derecha para mostrar la torta completa */
+.favorita img.encuadre-derecha {
+    object-position: right center;
+}
+
+.carta-contenido .favorita h3 {
+    margin: 10px 0 0 0;
+    color: rgb(72, 33, 9);
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.carta-contenido .favorita .boton {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+}
+
+.carta-contenido .favorita .boton-secundario {
+    border-color: rgb(165, 62, 20);
+    color: rgb(165, 62, 20);
+}
+
+.carta-contenido .subtitulo-carta {
+    margin-top: 32px;
+    color: rgb(255, 214, 170);
+    font-family: "Alegreya", Georgia, serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Galería de tortas temáticas: grilla de fotos verticales */
+.galeria-tematicas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.galeria-tematicas figure {
+    max-width: none;
+}
+
+.galeria-tematicas img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+/* ---------- 7. BOTONES (clase reutilizable) ---------- */
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 22px;
+    border: 2px solid rgb(165, 62, 20);
+    border-radius: 999px;
+    background-color: rgb(165, 62, 20);
+    color: rgb(255, 255, 255);
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton:hover {
+    background-color: rgb(72, 33, 9);
+    border-color: rgb(72, 33, 9);
+    color: rgb(255, 255, 255);
+    transform: translateY(-2px);
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: rgb(165, 62, 20);
+}
+
+
+/* ---------- 8. LISTAS ESPECIALES ---------- */
+
+.menu-categorias {
+    margin-bottom: 16px;
+    text-align: center;
+    color: rgb(253, 240, 225);
+}
+
+.menu-categorias ul {
+    display: flex;                   /* categorías como "etiquetas" en fila */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-categorias a {
+    display: block;
+    padding: 6px 16px;
+    border: 1px solid rgb(253, 240, 225);
+    border-radius: 999px;
+    color: rgb(253, 240, 225);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.menu-categorias a:hover {
+    background-color: rgb(253, 240, 225);
+    color: rgb(72, 33, 9);
+}
+
+.identidad dt {
+    font-weight: 700;
+    color: rgb(165, 62, 20);
+}
+
+.identidad dd {
+    margin: 0 0 12px 0;
+    padding-left: 12px;
+    border-left: 4px solid rgb(234, 214, 190);
+}
+
+.lista-contacto li {
+    margin-bottom: 8px;
+}
+
+
+/* ---------- 9. PRODUCTOS EN TARJETAS ---------- */
+
+.grilla-productos {
+    display: flex;                   /* tarjetas en filas que se ajustan solas */
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 24px 0;
+}
+
+.producto {
+    flex: 1 1 300px;                 /* cada tarjeta mide al menos 300px */
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(72, 33, 9, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-6px);     /* la tarjeta se eleva al pasar el mouse */
+    box-shadow: 0 12px 24px rgba(72, 33, 9, 0.18);
+}
+
+.producto img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;               /* recorta la foto sin deformarla */
+    margin-bottom: 12px;
+}
+
+.producto p {
+    flex-grow: 1;                    /* iguala la altura de las tarjetas */
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+}
+
+.producto ul {
+    margin: 0;
+    padding: 10px 12px;
+    list-style: none;
+    background-color: rgb(253, 240, 225);
+    border-radius: 10px;
+}
+
+.galeria {
+    display: flex;                   /* imágenes lado a lado */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.galeria figure {
+    flex: 1 1 260px;
+    max-width: 360px;
+}
+
+
+/* ---------- 10. TABLA DE PRECIOS ---------- */
+
+.tabla-precios {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: rgb(255, 255, 255);
+}
+
+.tabla-precios caption {
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.tabla-precios th,
+.tabla-precios td {
+    padding: 10px 14px;
+    border: 1px solid rgb(234, 214, 190);
+    text-align: left;
+}
+
+.tabla-precios thead th {
+    background-color: rgb(72, 33, 9);
+    color: rgb(253, 240, 225);
+}
+
+.tabla-precios tbody tr:nth-child(even) {
+    background-color: rgb(253, 240, 225);   /* filas alternadas */
+}
+
+
+/* ---------- 11. TESTIMONIOS ---------- */
+
+.testimonio {
+    margin: 16px 0 24px 0;
+    padding: 24px;
+    background-color: rgb(255, 255, 255);
+    border-left: 6px solid rgb(165, 62, 20);
+    border-radius: 12px;
+}
+
+.testimonio blockquote {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+
+/* ---------- 12. FORMULARIOS ---------- */
+
+.formulario {
+    max-width: 640px;
+}
+
+.formulario fieldset {
+    min-width: 0;                    /* evita que la tabla ensanche el fieldset en celular */
+    margin: 0 0 20px 0;
+    padding: 16px 20px;
+    border: 2px solid rgb(234, 214, 190);
+    border-radius: 14px;
+}
+
+.formulario legend {
+    padding: 0 8px;
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.3rem;
+    color: rgb(165, 62, 20);
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="tel"],
+.formulario input[type="date"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgb(191, 165, 138);
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(72, 33, 9);
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.formulario label {
+    font-weight: 700;
+}
+
+/* Cada etiqueta queda sobre su campo (reemplaza al <br> del HTML) */
+.formulario p > label:first-child {
+    display: block;
+    margin-bottom: 4px;
+}
+
+
+/* ---- Pedido tipo "carrito" hecho solo con HTML y CSS ---- */
+
+/* Contador de productos seleccionados (CSS counters) */
+.formulario .pedido-items {
+    counter-reset: seleccionados;
+}
+
+/* Categoría desplegable (acordeón con una casilla oculta) */
+.categoria {
+    margin-bottom: 14px;
+    border: 1px solid rgba(253, 240, 225, 0.35);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.abrir {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.formulario .categoria-titulo {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background-color: rgba(253, 240, 225, 0.08);
+    color: rgb(255, 214, 170);
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.categoria-titulo span {
+    margin-left: 8px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* Flecha que gira al abrir */
+.categoria-titulo::after {
+    content: "▾";
+    margin-left: auto;
+    transition: transform 0.3s;
+}
+
+.abrir:checked + .categoria-titulo::after {
+    transform: rotate(180deg);
+}
+
+.abrir:focus-visible + .categoria-titulo {
+    outline: 3px solid rgb(255, 214, 170);
+    outline-offset: -3px;
+}
+
+/* Lista cerrada: altura 0 (sigue existiendo, por eso el contador la cuenta) */
+.categoria .items {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease, visibility 0.4s;
+}
+
+.abrir:checked ~ .items {
+    max-height: 3000px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    visibility: visible;
+    border-top: 1px solid rgba(253, 240, 225, 0.35);
+}
+
+/* Grilla de tarjetas */
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 14px;
+    list-style: none;
+}
+
+.item {
+    position: relative;
+}
+
+/* Ajuste para Safari del iPhone: el campo de fecha no debe ser
+   más ancho que el formulario */
+.formulario input[type="date"] {
+    display: block;
+    min-width: 0;
+    min-height: 44px;                    /* alto cómodo para tocar con el dedo */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* La casilla real queda oculta visualmente; la tarjeta (label) la activa */
+.agregar {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.agregar:checked {
+    counter-increment: seleccionados;    /* suma 1 por cada producto marcado */
+}
+
+.item-tarjeta {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) 36px;   /* minmax evita que el texto ensanche la tarjeta */
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: rgb(72, 33, 9);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.formulario .item-tarjeta {
+    font-weight: 400;                /* las etiquetas del formulario son negritas; aquí no */
+}
+
+.item-tarjeta:hover {
+    border-color: rgb(255, 214, 170);
+}
+
+.item-tarjeta img,
+.item-icono {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(253, 240, 225);
+    color: rgb(165, 62, 20);
+    font-size: 1.8rem;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    line-height: 1.35;
+}
+
+.item-info strong {
+    font-size: 1rem;
+}
+
+/* Botón "+" redondo */
+.item-mas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: rgb(72, 33, 9);
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.item-mas::before {
+    content: "+";
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+/* Producto seleccionado: borde, fondo y el "+" cambia a "✓" */
+.agregar:checked + .item-tarjeta {
+    border-color: rgb(31, 122, 70);
+    background-color: rgb(240, 250, 243);
+}
+
+.agregar:checked + .item-tarjeta .item-mas {
+    background-color: rgb(31, 122, 70);
+}
+
+.agregar:checked + .item-tarjeta .item-mas::before {
+    content: "✓";
+    font-size: 1rem;
+}
+
+.agregar:focus-visible + .item-tarjeta {
+    outline: 3px solid rgb(255, 214, 170);
+    outline-offset: 2px;
+}
+
+/* La cantidad aparece solo cuando el producto está seleccionado */
+.item-cantidad {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 8px 10px 0 10px;
+    font-size: 0.9rem;
+}
+
+.agregar:checked ~ .item-cantidad {
+    display: flex;
+}
+
+.formulario .item-cantidad input[type="number"] {
+    width: 60px;
+    margin-left: 4px;
+    padding: 4px;
+    border: 1px solid rgb(191, 165, 138);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.formulario .item-cantidad label {
+    font-weight: 400;
+}
+
+/* Resumen con el número de productos marcados */
+.resumen-pedido {
+    padding: 12px 16px;
+    background-color: rgba(253, 240, 225, 0.1);
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.resumen-pedido::after {
+    content: counter(seleccionados);
+    display: inline-block;
+    min-width: 30px;
+    margin-left: 6px;
+    padding: 2px 8px;
+    background-color: rgb(31, 122, 70);
+    border-radius: 999px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+/* ---------- 12b. ELEMENTOS CREADOS CON JAVASCRIPT ---------- */
+
+/* Resumen detallado del carrito (lo dibuja pedido.js) */
+.resumen-detalle {
+    padding: 14px 18px;
+    background-color: rgba(253, 240, 225, 0.1);
+    border-radius: 12px;
+}
+
+.resumen-detalle ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.resumen-detalle li {
+    margin: 4px 0;
+}
+
+.resumen-detalle li span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.resumen-detalle li.sin-cantidad span {
+    color: rgb(255, 196, 140);
+}
+
+.resumen-titulo,
+.resumen-total {
+    margin: 0;
+    font-weight: 700;
+}
+
+.resumen-total {
+    color: rgb(255, 214, 170);
+}
+
+.resumen-vacio {
+    margin: 0;
+    font-style: italic;
+}
+
+/* Mensajes de error de la validación */
+.error {
+    display: block;
+    margin-top: 6px;
+    color: rgb(255, 170, 150);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.error::before {
+    content: "⚠ ";
+}
+
+.formulario .campo-invalido {
+    border-color: rgb(230, 110, 90);
+    box-shadow: 0 0 0 2px rgba(230, 110, 90, 0.35);
+}
+
+/* Confirmación del pedido con el mensaje para WhatsApp */
+.confirmacion {
+    margin-top: 24px;
+    padding: 20px;
+    border: 2px solid rgb(31, 122, 70);
+    background-color: rgba(31, 122, 70, 0.15);
+    border-radius: 16px;
+}
+
+.confirmacion h3 {
+    margin-top: 0;
+}
+
+.confirmacion pre {
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-family: "Nunito", Arial, sans-serif;
+    font-size: 0.9rem;
+    white-space: pre-wrap;              /* el texto largo baja de línea */
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* Horario: día de hoy y estado del local (lo marca horario.js) */
+.horario li.hoy {
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: rgba(253, 240, 225, 0.12);
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.estado-local {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+}
+
+.estado-local.abierto {
+    background-color: rgb(31, 122, 70);
+    color: rgb(255, 255, 255);
+}
+
+.estado-local.cerrado {
+    background-color: rgba(253, 240, 225, 0.15);
+}
+
+/* ---------- 13. MAPA ---------- */
+
+.mapa {
+    width: 100%;
+    height: 350px;
+    border: 3px solid rgb(165, 62, 20);
+    border-radius: 16px;
+}
+
+
+/* ---------- 14. PIE DE PÁGINA Y REDES FLOTANTES ---------- */
+
+.pie {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 8px 8px 8px;
+    color: rgb(253, 240, 225);
+}
+
+.creditos {
+    margin: 0;
+    text-align: center;
+}
+
+/* Barra de redes fija al costado izquierdo, centrada en la altura */
+.redes-flotantes {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    padding: 10px 8px;
+    background-color: rgba(253, 240, 225, 0.92);
+    border-radius: 0 18px 18px 0;    /* solo las esquinas derechas redondeadas */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.redes-flotantes ul {
+    display: flex;
+    flex-direction: column;          /* íconos uno debajo del otro */
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.red {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.35rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+a.red:hover {
+    color: rgb(255, 255, 255);
+    transform: scale(1.15);          /* crece al pasar el mouse */
+}
+
+/* Íconos en el mismo estilo neutro de la portada */
+.red {
+    background-color: rgb(72, 33, 9);
+    color: rgb(253, 240, 225);
+}
+
+a.red:hover {
+    background-color: rgb(165, 62, 20);
+    color: rgb(255, 255, 255);
+}
+
+.red-facebook {
+    opacity: 0.45;                   /* atenuado: la cuenta aún no existe */
+    cursor: not-allowed;
+}
+
+
+/* ---------- 15. PANTALLAS MEDIANAS Y PEQUEÑAS ---------- */
+
+@media (max-width: 1000px) {
+    /* en pantallas angostas solo quedan el botón de menú, el logo y "Haz tu pedido" */
+    .menu-principal li {
+        display: none;
+    }
+
+    .menu-principal li:last-child {
+        display: block;
+    }
+
+    .inicio .encabezado {
+        left: 50%;
+    }
+
+    /* la portada pasa a una columna y se puede desplazar */
+    .inicio {
+        height: auto;
+        overflow: visible;
+    }
+
+    .portada {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero > .hero-ginger {
+        height: 300px;
+    }
+
+    .tarjetas {
+        grid-template-rows: none;
+    }
+
+    .tarjeta {
+        height: 200px;
+    }
+
+    .saludo {
+        font-size: 4.5rem;
+    }
+
+    .menu-ginger {
+        display: none;
+    }
+
+    .pagina-carta {
+        padding-top: 110px;
+    }
+
+    .carta {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .carta-portada {
+        position: static;
+        height: 55vh;
+    }
+
+    .carta-contenido {
+        border: none;
+        padding: 16px 4%;
+    }
+
+    .contacto-contenido {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 0;
+    }
+
+    .cuadro-ginger {
+        flex-direction: column;
+    }
+
+    .nosotros-contenido .identidad {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .historia-texto {
+        columns: 1;
+    }
+
+    body {
+        padding: 96px 10px 10px 10px;
+    }
+
+    .encabezado {
+        top: 16px;
+        gap: 8px;
+    }
+
+    .marca {
+        display: none;
+    }
+
+    .saludo {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+
+    .portada-interna h1 {
+        font-size: 2.4rem;
+        letter-spacing: 3px;
+    }
+
+    main section {
+        padding: 22px;
+    }
+
+    main section > figure,
+    #ginger > figure {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px 0;
+    }
+
+    .menu-lista a {
+        font-size: 1.4rem;
+    }
+
+    .redes-circulos {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 16px;
+    }
+
+    /* en celular la barra de redes deja de flotar: va en fila al final de la página,
+       antes del pie, para no tapar el contenido */
+    .redes-flotantes {
+        position: static;
+        transform: none;
+        width: max-content;
+        margin: 24px auto 0 auto;
+        padding: 8px 12px;
+        border-radius: 999px;
+    }
+
+    .redes-flotantes ul {
+        flex-direction: row;
+    }
+
+    /* la ilustración deja de flotar y el texto usa todo el ancho */
+    .nosotros-contenido .patinadora {
+        float: none;
+        width: 160px;
+        margin: 0 auto 16px auto;
+    }
+
+    .red {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    .carta-portada h1 {
+        font-size: 3rem;
+    }
+
+    .carta-contenido h2 {
+        font-size: 1.35rem;
+        letter-spacing: 1px;
+    }
+
+    .carta-contenido h2::before,
+    .carta-contenido h2::after {
+        flex-basis: 16px;
+    }
+
+    .carta-contenido .producto {
+        grid-template-columns: 90px 1fr;
+    }
+
+    .carta-contenido .producto img {
+        width: 90px;
+        height: 90px;
+    }
+
+}

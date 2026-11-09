@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tortas, tortas temáticas, galletas decoradas y pastelería de La Casita de Ginger en Chillán. Precios por tamaño.">
+    <meta name="author" content="Rodrigo - IPLACEX Diseño Web">
+    <title>La Casita de Ginger | Productos</title>
+    <link rel="icon" href="img/marca/mar-logo.webp" type="image/webp">
+    <!-- Tipografías de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&amp;family=Nunito:wght@400;700&amp;display=swap">
+    <!-- Hoja de estilos externa del sitio -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="pagina-carta">
+
+    <!-- ===== ENCABEZADO FLOTANTE (igual en todas las páginas) ===== -->
+    <header class="encabezado">
+        <a class="boton-menu" href="#menu" aria-label="Abrir el menú completo">
+            <span></span><span></span><span></span>
+        </a>
+        <a href="index.html" class="logo-enlace">
+            <img class="logo" src="img/marca/mar-logo.webp" alt="Logo de La Casita de Ginger, Chillán, Chile" width="120" height="120">
+        </a>
+        <p class="marca"><strong>La Casita de Ginger</strong> <span>Donde la Navidad se vive todo el año</span></p>
+
+        <nav class="menu-principal" aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html" aria-current="page">Productos</a></li>
+                <li><a href="nosotros.html">Nuestra historia</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a class="boton" href="pedido.html">Haz tu pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MENÚ COMPLETO A PANTALLA COMPLETA (se abre con :target) ===== -->
+    <nav id="menu" class="menu-completo" aria-label="Menú completo">
+        <a class="cerrar" href="#" aria-label="Cerrar el menú">&times;</a>
+        <figure class="menu-ginger">
+            <img src="img/marca/mar-ginger-saludando.webp" alt="Ginger saludando" width="481" height="700">
+        </figure>
+        <div class="menu-lista">
+            <img class="menu-logo" src="img/marca/mar-logo.webp" alt="" width="120" height="120">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html#tortas">Tortas</a></li>
+                <li><a href="productos.html#galletas">Galletas</a></li>
+                <li><a href="productos.html#pasteleria">Dulces chilenos</a></li>
+                <li><a href="productos.html#desayunos">Desayunos sorpresa</a></li>
+                <li><a href="nosotros.html">Nuestra historia</a></li>
+                <li><a href="nosotros.html#ginger">Conoce a Ginger</a></li>
+                <li><a href="nosotros.html#testimonios">Testimonios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="pedido.html">Haz tu pedido</a></li>
+                <li><a href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="carta">
+
+        <!-- Portada fija de la carta (lado izquierdo) -->
+        <div class="carta-portada">
+            <h1>Nuestros productos</h1>
+            <p>La magia también se disfruta a través del sabor. Descubre nuestras tortas, galletas, pastelería y preparaciones dulces, elaboradas con dedicación para acompañar tus celebraciones, sorprender a quienes quieres o darte un gusto especial.</p>
+        </div>
+
+        <!-- Índice interno de la página -->
+        <!-- Contenido de la carta (lado derecho) -->
+        <div class="carta-contenido">
+
+        <nav class="menu-categorias" aria-label="Categorías de productos">
+            <p><strong>Categorías:</strong></p>
+            <ul>
+                <li><a href="#favoritas">Favoritas de la casa</a></li>
+                <li><a href="#tortas">Tortas</a></li>
+                <li><a href="#tortas-tematicas">Tortas temáticas y personalizadas</a></li>
+                <li><a href="#galletas">Galletas decoradas</a></li>
+                <li><a href="#pasteleria">Dulces y pastelería chilena</a></li>
+                <li><a href="#desayunos">Desayunos sorpresa personalizados</a></li>
+                <li><a href="#cafeteria">Café y bebidas calientes</a></li>
+                <li><a href="#regalo">Para regalar</a></li>
+            </ul>
+        </nav>
+
+        <!-- Tortas destacadas: las dos que el emprendimiento entregó con afiche propio -->
+        <section id="favoritas">
+            <h2>Favoritas de la casa</h2>
+            <div class="favoritas">
+                <article class="favorita">
+                    <img src="img/tortas/afiches/afi-sra-ginger-01.jpg" alt="Afiche de la Torta Sra. Ginger, hecha con recetas caseras" width="750" height="1000">
+                    <h3>Torta Sra. Ginger</h3>
+                    <p><a class="boton" href="pedido.html">Encárgala</a> <a class="boton boton-secundario" href="#torta-sra-ginger">Ver detalle</a></p>
+                </article>
+                <article class="favorita">
+                    <img class="encuadre-derecha" src="img/tortas/afiches/afi-celestial-01.jpg" alt="Afiche de la Torta Celestial, crujiente por fuera y suave por dentro" width="1000" height="800">
+                    <h3>Torta Celestial</h3>
+                    <p><a class="boton" href="pedido.html">Encárgala</a> <a class="boton boton-secundario" href="#torta-celestial">Ver detalle</a></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Tortas -->
+        <section id="tortas">
+            <h2>Tortas: una magia de sabor</h2>
+            <p>Nuestras tortas de carta están disponibles en dos tamaños: para 20 y para 30 personas. Toca cada foto para verla en grande.</p>
+
+            <div class="grilla-productos">
+
+            <article class="producto" id="torta-amor">
+                <h3>Torta Amor</h3>
+                <a class="ampliar" href="#ver-torta-amor" aria-label="Ver foto ampliada de Torta Amor"><img src="img/tortas/carta/tor-amor-01.jpg" alt="Torta Amor" width="1000" height="667"></a>
+                <p>Hojarasca, crema pastelera, merengue, mermelada de frambuesas casera, dulce de leche casero, crema chantilly.</p>
+                <ul>
+                    <li>20 personas: <strong>$30.000</strong></li>
+                    <li>30 personas: <strong>$42.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-caluga">
+                <h3>Torta Caluga</h3>
+                <a class="ampliar" href="#ver-torta-caluga" aria-label="Ver foto ampliada de Torta Caluga"><img src="img/tortas/carta/tor-caluga-01.jpg" alt="Torta Caluga" width="1000" height="960"></a>
+                <p>Crema de caluga, nueces y frambuesas.</p>
+                <ul>
+                    <li>20 personas: <strong>$30.000</strong></li>
+                    <li>30 personas: <strong>$40.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-mocca-nuez">
+                <h3>Torta Mocca Nuez</h3>
+                <a class="ampliar" href="#ver-torta-mocca-nuez" aria-label="Ver foto ampliada de Torta Mocca Nuez"><img src="img/tortas/carta/tor-mocca-nuez-01.jpg" alt="Torta Mocca Nuez" width="540" height="230"></a>
+                <p>Bizcocho de nuez y miel, con suave crema sabor mocca.</p>
+                <ul>
+                    <li>20 personas: <strong>$25.000</strong></li>
+                    <li>30 personas: <strong>$35.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-pina-clasica">
+                <h3>Torta de Piña Clásica</h3>
+                <a class="ampliar" href="#ver-torta-pina-clasica" aria-label="Ver foto ampliada de Torta de Piña Clásica"><img src="img/tortas/carta/tor-pina-clasica-01.jpg" alt="Torta de Piña Clásica" width="1000" height="931"></a>
+                <p>Bizcocho de vainilla, crema montada, mermelada de piña casera, remojada en almíbar de piña natural.</p>
+                <ul>
+                    <li>20 personas: <strong>$25.000</strong></li>
+                    <li>30 personas: <strong>$35.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-5-leches">
+                <h3>Torta 5 Leches</h3>
+                <a class="ampliar" href="#ver-torta-5-leches" aria-label="Ver foto ampliada de Torta 5 Leches"><img src="img/tortas/carta/tor-5-leches-01.jpg" alt="Torta 5 Leches" width="540" height="228"></a>
+                <p>Bizcocho 3 leches, crema pastelera casera, dulce de leche casero.</p>
+                <ul>
+                    <li>20 personas: <strong>$28.000</strong></li>
+                    <li>30 personas: <strong>$38.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-7-sabores">
+                <h3>Torta 7 Sabores</h3>
+                <a class="ampliar" href="#ver-torta-7-sabores" aria-label="Ver foto ampliada de Torta 7 Sabores"><img src="img/tortas/carta/tor-7-sabores-01.jpg" alt="Torta 7 Sabores" width="540" height="264"></a>
+                <p>Bizcocho chocolate, bizcocho vainilla, crema pastelera casera, hojarasca, dulce de leche casero, merengue, frambuesa, crema montada.</p>
+                <ul>
+                    <li>20 personas: <strong>$30.000</strong></li>
+                    <li>30 personas: <strong>$42.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-3-leches-maracuya">
+                <h3>Torta 3 Leches Maracuyá</h3>
+                <a class="ampliar" href="#ver-torta-3-leches-maracuya" aria-label="Ver foto ampliada de Torta 3 Leches Maracuyá"><img src="img/tortas/carta/tor-3-leches-maracuya-01.jpg" alt="Torta 3 Leches Maracuyá" width="562" height="1000"></a>
+                <p>Bizcocho 3 leches, crema de maracuyá natural, crema montada con maracuyá natural.</p>
+                <ul>
+                    <li>20 personas: <strong>$30.000</strong></li>
+                    <li>30 personas: <strong>$42.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-pompadour">
+                <h3>Torta Pompadour</h3>
+                <a class="ampliar" href="#ver-torta-pompadour" aria-label="Ver foto ampliada de Torta Pompadour"><img src="img/tortas/carta/tor-pompadour-01.jpg" alt="Torta Pompadour" width="1000" height="1000"></a>
+                <p>Hojarasca, rellena de leche casero, crema montada con plátano natural.</p>
+                <ul>
+                    <li>20 personas: <strong>$30.000</strong></li>
+                    <li>30 personas: <strong>$42.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-martuca">
+                <h3>Torta Martuca</h3>
+                <a class="ampliar" href="#ver-torta-martuca" aria-label="Ver foto ampliada de Torta Martuca"><img src="img/tortas/carta/tor-martuca-01.jpg" alt="Torta Martuca" width="534" height="276"></a>
+                <p>Hojarasca, rellena de crema pastelera, dulce de leche y crema montada, cubierta con crema chantilly.</p>
+                <ul>
+                    <li>20 personas: <strong>$30.000</strong></li>
+                    <li>30 personas: <strong>$42.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto producto-favorito" id="torta-sra-ginger">
+                <h3>Torta Sra. Ginger</h3>
+                <a class="ampliar" href="#ver-torta-sra-ginger" aria-label="Ver foto ampliada de Torta Sra. Ginger"><img src="img/tortas/carta/tor-sra-ginger-01.jpg" alt="Torta Sra. Ginger" width="1000" height="600"></a>
+                <p>Doble bizcocho de vainilla, hojarasca, dulce de leche y crema pastelera casera, crema de arándanos, cubierta con crema montada, coronada con una mermelada casera de arándanos.</p>
+                <ul>
+                    <li>20 personas: <strong>$32.000</strong></li>
+                    <li>30 personas: <strong>$45.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto" id="torta-pie-de-limon">
+                <h3>Torta Pie de Limón</h3>
+                <a class="ampliar" href="#ver-torta-pie-de-limon" aria-label="Ver foto ampliada de Torta Pie de Limón"><img src="img/tortas/carta/tor-pie-de-limon-01.jpg" alt="Torta Pie de Limón" width="534" height="312"></a>
+                <p>Bizcocho de vainilla humedecido, relleno de crema de limón, dulce de leche y crujiente de galleta, cubierta con merengue suizo.</p>
+                <ul>
+                    <li>20 personas: <strong>$28.000</strong></li>
+                    <li>30 personas: <strong>$40.000</strong></li>
+                </ul>
+            </article>
+
+            <article class="producto producto-nuevo" id="torta-celestial">
+                <h3>Torta Celestial</h3>
+                <a class="ampliar" href="#ver-torta-celestial" aria-label="Ver foto ampliada de Torta Celestial"><img src="img/tortas/carta/tor-celestial-01.jpg" alt="Torta Celestial cubierta de merengue tostado" width="875" height="1000"></a>
+                <p>Crujiente por fuera, suave por dentro: un sabor que te lleva al cielo. ¡Nuestra novedad!</p>
+                <ul>
+                    <li>Precio: <strong>consúltanos</strong></li>
+                </ul>
+            </article>
+
+            </div>
+
+            <!-- Fotos ampliadas: se muestran al hacer clic (selector :target) -->
+            <div class="visor" id="ver-torta-amor">
+                <a class="visor-fondo" href="#torta-amor" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-amor-01.jpg" alt="Torta Amor" width="1000" height="667">
+                    <figcaption>Torta Amor</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-amor" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-caluga">
+                <a class="visor-fondo" href="#torta-caluga" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-caluga-01.jpg" alt="Torta Caluga" width="1000" height="960">
+                    <figcaption>Torta Caluga</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-caluga" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-mocca-nuez">
+                <a class="visor-fondo" href="#torta-mocca-nuez" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-mocca-nuez-01.jpg" alt="Torta Mocca Nuez" width="540" height="230">
+                    <figcaption>Torta Mocca Nuez</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-mocca-nuez" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-pina-clasica">
+                <a class="visor-fondo" href="#torta-pina-clasica" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/afiches/afi-pina-clasica-01.jpg" alt="Afiche de la Torta de Piña" width="667" height="1000">
+                    <figcaption>Torta de Piña Clásica</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-pina-clasica" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-5-leches">
+                <a class="visor-fondo" href="#torta-5-leches" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-5-leches-01.jpg" alt="Torta 5 Leches" width="540" height="228">
+                    <figcaption>Torta 5 Leches</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-5-leches" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-7-sabores">
+                <a class="visor-fondo" href="#torta-7-sabores" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-7-sabores-01.jpg" alt="Torta 7 Sabores" width="540" height="264">
+                    <figcaption>Torta 7 Sabores</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-7-sabores" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-3-leches-maracuya">
+                <a class="visor-fondo" href="#torta-3-leches-maracuya" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/afiches/afi-3-leches-maracuya-01.jpg" alt="Afiche de la Torta 3 Leches Maracuyá" width="750" height="1000">
+                    <figcaption>Torta 3 Leches Maracuyá</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-3-leches-maracuya" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-pompadour">
+                <a class="visor-fondo" href="#torta-pompadour" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-pompadour-01.jpg" alt="Torta Pompadour" width="1000" height="1000">
+                    <figcaption>Torta Pompadour</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-pompadour" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-martuca">
+                <a class="visor-fondo" href="#torta-martuca" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-martuca-01.jpg" alt="Torta Martuca" width="534" height="276">
+                    <figcaption>Torta Martuca</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-martuca" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-sra-ginger">
+                <a class="visor-fondo" href="#torta-sra-ginger" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/afiches/afi-sra-ginger-01.jpg" alt="Afiche de la Torta Sra. Ginger" width="750" height="1000">
+                    <figcaption>Torta Sra. Ginger</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-sra-ginger" aria-label="Cerrar la foto">&times;</a>
+            </div>
+            <div class="visor" id="ver-torta-pie-de-limon">
+                <a class="visor-fondo" href="#torta-pie-de-limon" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/carta/tor-pie-de-limon-01.jpg" alt="Torta Pie de Limón" width="534" height="312">
+                    <figcaption>Torta Pie de Limón</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-pie-de-limon" aria-label="Cerrar la foto">&times;</a>
+            </div>
+
+            <div class="visor" id="ver-torta-celestial">
+                <a class="visor-fondo" href="#torta-celestial" aria-label="Cerrar la foto"></a>
+                <figure>
+                    <img src="img/tortas/afiches/afi-celestial-01.jpg" alt="Afiche de la Torta Celestial" width="1000" height="800">
+                    <figcaption>Torta Celestial</figcaption>
+                </figure>
+                <a class="cerrar" href="#torta-celestial" aria-label="Cerrar la foto">&times;</a>
+            </div>
+
+            <h3 class="subtitulo-carta">Así se ven por dentro</h3>
+            <div class="galeria">
+                <figure>
+                    <img src="img/tortas/porciones/por-frambuesa-01.jpg" alt="Porción de torta con capas de crema y frambuesa" width="667" height="1000" loading="lazy">
+                    <figcaption>Capas de crema y frambuesa.</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/porciones/por-tres-leches-01.jpg" alt="Porción de torta de bizcocho húmedo con crema" width="667" height="1000" loading="lazy">
+                    <figcaption>Bizcocho húmedo y crema.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Tortas temáticas -->
+        <section id="tortas-tematicas">
+            <h2>Tortas temáticas y personalizadas</h2>
+            <p>Hacemos tortas decoradas según la temática de tu celebración, con el nombre de la persona festejada y sus personajes favoritos. Escríbenos con tu idea y te ayudamos a hacerla realidad.</p>
+
+            <div class="galeria galeria-tematicas">
+                <figure>
+                    <img src="img/tortas/tematicas/tem-cumpleanos-emilio-01.jpg" alt="Torta de cumpleaños con mensaje «Feliz cumpleaños Emilio»" width="667" height="1000" loading="lazy">
+                    <figcaption>Cumpleaños con mensaje</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/tematicas/tem-futbol-01.jpg" alt="Torta temática de fútbol con cancha y el nombre José Mateo" width="1000" height="667" loading="lazy">
+                    <figcaption>Temática de fútbol</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/tematicas/tem-videojuego-01.jpg" alt="Torta temática de videojuego con figuras y paisaje" width="667" height="1000" loading="lazy">
+                    <figcaption>Temática de videojuego</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/tematicas/tem-cumpleanos-41-01.jpg" alt="Torta negra de cumpleaños número 41 con esferas doradas" width="750" height="1000" loading="lazy">
+                    <figcaption>Cumpleaños número 41</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/tematicas/tem-flores-01.jpg" alt="Torta decorada con flores de crema" width="750" height="1000" loading="lazy">
+                    <figcaption>Decoración floral</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/tematicas/tem-elegante-chocolate-01.jpg" alt="Torta elegante con detalles de chocolate" width="750" height="1000" loading="lazy">
+                    <figcaption>Detalles de chocolate</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/tematicas/tem-cumpleanos-gabriela-01.jpg" alt="Torta de cumpleaños morada con topper personalizado con el nombre Gabriela" width="450" height="600" loading="lazy">
+                    <figcaption>Topper personalizado</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/tortas/tematicas/tem-topper-gabriela-01.jpg" alt="Diseño de topper de torta con estrellas, número 9 y el nombre Gabriela" width="505" height="600" loading="lazy">
+                    <figcaption>Diseño de topper</figcaption>
+                </figure>
+            </div>
+
+            <p><a class="boton" href="pedido.html">Encarga tu torta temática</a></p>
+        </section>
+
+        <!-- Galletas -->
+        <section id="galletas">
+            <h2>Galletas decoradas</h2>
+            <p>Galletas decoradas a mano con <em>royal icing</em> para cumpleaños, bautizos, primeras comuniones y fechas especiales, con la temática y los nombres que elijas.</p>
+            <p><strong>Galletitas pintables:</strong> una cajita con 7 galletitas para que niñas y niños las pinten y decoren a su gusto. Ideal para celebrar, regalar y divertirse en familia.</p>
+
+            <div class="galeria">
+            <figure>
+                <img src="img/galletas/gal-tematicas-robots-01.jpg" alt="Caja de galletas decoradas con forma de robots y personajes espaciales" width="700" height="687">
+                <figcaption>Galletas decoradas temáticas.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="img/galletas/gal-personalizadas-01.jpg" alt="Galletas decoradas en tonos verde y rosado con el nombre Diego, cruces y ramas de olivo" width="700" height="657">
+                <figcaption>Galletas personalizadas para una celebración especial.</figcaption>
+            </figure>
+            </div>
+        </section>
+
+        <!-- Pastelería -->
+        <section id="pasteleria">
+            <h2>Dulces y pastelería chilena</h2>
+            <p>Además de nuestras tortas y galletas, preparamos pastelería y preparaciones tradicionales chilenas elaboradas con dedicación, porque siempre existe una buena razón para compartir algo rico:</p>
+            <ul>
+                <li><strong>Picarones</strong> con chancaca, perfectos para el invierno.</li>
+                <li><strong>Dulces chilenos</strong>, como nuestros alfajores.</li>
+                <li><strong>Kuchen y pies</strong>, como el kuchen de frutillas y el pie de manzana canela.</li>
+                <li><strong>Canastitos</strong> y otras preparaciones para compartir.</li>
+                <li><strong>Especiales de temporada</strong>, como la torta endieciochada, los pajaritos y el mote con huesillos en Fiestas Patrias.</li>
+            </ul>
+            <div class="galeria">
+                <figure>
+                    <img src="img/pasteleria/pas-kuchen-frutillas-01.jpg" alt="Kuchen con frutillas" width="1000" height="667" loading="lazy">
+                    <figcaption>Kuchen de frutillas</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/pasteleria/pas-pie-manzana-01.jpg" alt="Pie de manzana con masa enrejada" width="1000" height="667" loading="lazy">
+                    <figcaption>Pie de manzana canela</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/pasteleria/pas-tartaletas-limon-01.jpg" alt="Tartaletas de limón con merengue" width="1000" height="667" loading="lazy">
+                    <figcaption>Tartaletas de limón</figcaption>
+                </figure>
+            </div>
+            <p>Consulta disponibilidad visitando nuestro local o escribiéndonos por <a href="contacto.html#redes">redes sociales o WhatsApp</a>.</p>
+        </section>
+
+        <!-- Desayunos -->
+        <section id="desayunos">
+            <h2>Desayunos sorpresa personalizados</h2>
+            <p>¿Quieres sorprender a alguien especial? Preparamos desayunos sorpresa personalizados, con detalles y mensajes pensados para cada persona. Cuéntanos a quién quieres sorprender y armamos una cajita única.</p>
+            <p><a class="boton" href="pedido.html">Encarga tu desayuno sorpresa</a></p>
+        </section>
+
+        <!-- Cafetería -->
+        <section id="cafeteria">
+            <h2>Café y bebidas calientes</h2>
+            <p>En nuestra casita también puedes disfrutar de un café o una bebida caliente acompañada de nuestras delicias, rodeado de la magia de la Navidad.</p>
+        </section>
+
+        <!-- Para regalar -->
+        <section id="regalo">
+            <h2>Para regalar</h2>
+            <figure>
+                <img src="img/marca/mar-caja-regalo-01.jpg" alt="Caja de cartón con forma de casita de jengibre y el logo de La Casita de Ginger" width="800" height="638">
+                <figcaption>Caja temática de La Casita de Ginger.</figcaption>
+            </figure>
+            <p>¿Quieres sorprender a alguien especial? <a href="pedido.html">Haz tu pedido aquí</a>.</p>
+        </section>
+
+        </div>
+
+    </main>
+
+    <!-- ===== REDES SOCIALES FLOTANTES (igual en todas las páginas) ===== -->
+    <aside class="redes-flotantes" aria-label="Redes sociales">
+        <ul>
+            <li><a class="red red-instagram" href="https://www.instagram.com/lacasitadeginger_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @lacasitadeginger_"><svg class="icono" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a></li>
+            <li><a class="red red-tiktok" href="https://www.tiktok.com/@lacasitadeginger" target="_blank" rel="noopener noreferrer" aria-label="TikTok @lacasitadeginger"><svg class="icono" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a></li>
+            <li><a class="red red-whatsapp" href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +56 9 5228 1744"><svg class="icono" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a></li>
+            <li><span class="red red-facebook" role="img" title="Facebook: próximamente" aria-label="Facebook: próximamente"><svg class="icono" viewBox="0 0 320 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg></span></li>
+        </ul>
+    </aside>
+
+    <!-- ===== PIE DE PÁGINA ===== -->
+    <footer class="pie">
+        <p class="creditos"><small>&copy; 2026 La Casita de Ginger · Sitio diseñado y desarrollado por <strong>Rodrigo Tranolao</strong></small></p>
+    </footer>
+
+</body>
+</html>
