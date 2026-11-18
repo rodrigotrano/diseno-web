@@ -98,7 +98,13 @@ a:focus {
 .semi-black-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(72, 33, 9, 0.6);
+    background-color: rgba(72, 33, 9, 0.72);   /* capa más oscura: mejor contraste en el celular */
+}
+
+.titulo-pagina h1,
+.titulo-pagina p,
+.franja-frase p {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 #preloader {

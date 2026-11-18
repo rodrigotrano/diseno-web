@@ -687,7 +687,7 @@ main section > figure {
     padding: 40px;
     border-radius: 24px;
     background-image:
-        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        linear-gradient(rgba(72, 33, 9, 0.55), rgba(72, 33, 9, 0.9)),
         url("../img/tortas/carta/tor-3-leches-maracuya-01.jpg");
     background-size: cover;
     background-position: center;
@@ -702,13 +702,14 @@ main section > figure {
     letter-spacing: 6px;
     line-height: 1;
     text-transform: uppercase;
-    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
 }
 
 .carta-portada p {
     max-width: 520px;
     margin: 0;
     color: rgb(253, 240, 225);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);   /* contraste del texto sobre la foto */
 }
 
 /* Contenido de la carta, entre dos líneas finas verticales */
@@ -947,13 +948,13 @@ main section > figure {
 /* Misma portada fija de la carta, con otra foto de fondo */
 .portada-contacto {
     background-image:
-        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        linear-gradient(rgba(72, 33, 9, 0.55), rgba(72, 33, 9, 0.9)),
         url("../img/local/loc-fachada-01.jpg");
 }
 
 .portada-pedido {
     background-image:
-        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        linear-gradient(rgba(72, 33, 9, 0.55), rgba(72, 33, 9, 0.9)),
         url("../img/tortas/carta/tor-pompadour-01.jpg");
 }
 
@@ -1138,7 +1139,7 @@ main section > figure {
 
 .portada-nosotros {
     background-image:
-        linear-gradient(rgba(72, 33, 9, 0.1), rgba(72, 33, 9, 0.85)),
+        linear-gradient(rgba(72, 33, 9, 0.55), rgba(72, 33, 9, 0.9)),
         url("../img/local/loc-stand-navideno-01.jpg");
 }
 
