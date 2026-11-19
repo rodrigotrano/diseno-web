@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&amp;family=Nunito:wght@400;700&amp;display=swap">
     <!-- Hoja de estilos externa del sitio -->
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/comentario.js" defer></script>
 </head>
 <body class="pagina-carta">
 
@@ -178,7 +179,7 @@
 
                 <p>Puedes leer más opiniones en la sección destacada «Opiniones» de nuestro <a href="https://www.instagram.com/lacasitadeginger_/" target="_blank" rel="noopener noreferrer">Instagram</a>. ¿Ya nos visitaste? ¡Cuéntanos tu experiencia!</p>
 
-                <form class="formulario" action="mailto:Fabiola.Avendano@gmail.com" method="post" enctype="text/plain">
+                <form class="formulario" id="form-comentario" action="mailto:Fabiola.Avendano@gmail.com" method="post" enctype="text/plain">
                     <fieldset>
                         <legend>Deja tu comentario</legend>
 
@@ -202,7 +203,7 @@
                         </p>
                         <p>
                             <label for="testimonio-comentario">Comentario:</label>
-                            <textarea id="testimonio-comentario" name="comentario" rows="4" cols="50" placeholder="Cuéntanos qué te pareció tu visita o tu pedido" required></textarea>
+                            <textarea id="testimonio-comentario" name="comentario" rows="4" cols="50" placeholder="Cuéntanos qué te pareció tu visita o tu pedido" maxlength="500" required></textarea>
                         </p>
                         <p>
                             <input type="checkbox" id="testimonio-autoriza" name="autoriza_publicar" value="si">
@@ -214,6 +215,9 @@
                         </p>
                     </fieldset>
                 </form>
+
+                <!-- Agradecimiento: comentario.js lo completa al enviar un comentario válido -->
+                <div id="gracias" class="confirmacion" tabindex="-1" hidden></div>
             </section>
 
         </div>

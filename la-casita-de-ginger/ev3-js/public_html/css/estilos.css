@@ -697,7 +697,7 @@ main section > figure {
 .carta-portada h1 {
     margin: 0 0 12px 0;
     color: rgb(253, 240, 225);
-    font-size: 5rem;
+    font-size: clamp(2.6rem, 6.5vw, 5rem);   /* se achica en tablets para no desbordar */
     font-weight: 500;
     letter-spacing: 6px;
     line-height: 1;
@@ -2000,6 +2000,47 @@ main section > figure {
     white-space: pre-wrap;              /* el texto largo baja de línea */
     text-align: left;
     overflow-wrap: anywhere;
+}
+
+/* Tablets: los cuadros quedan angostos y los títulos en mayúsculas no caben */
+@media (min-width: 601px) and (max-width: 1200px) {
+    .contacto-contenido h2 {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Formulario de comentarios (comentario.js) */
+.contador {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    text-align: right;
+}
+
+.contador.cerca-limite {
+    color: rgb(255, 196, 140);
+    opacity: 1;
+}
+
+.vista-comentario {
+    margin: 12px 0 18px 0;
+    padding: 12px 16px;
+    border-left: 4px solid rgb(255, 214, 170);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.vista-comentario p {
+    margin: 0 0 6px 0;
+}
+
+.estrellas {
+    color: rgb(255, 214, 170);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
 }
 
 /* Horario: día de hoy y estado del local (lo marca horario.js) */
