@@ -83,8 +83,20 @@ document.addEventListener('DOMContentLoaded', function () {
         return carrito;
     }
 
+    // Los campos de cantidad de productos NO marcados se desactivan (disabled):
+    // así el formulario solo envía las cantidades de lo que se eligió
+    function sincronizarCantidades() {
+        items.forEach(function (item) {
+            const marcado = item.querySelector('.agregar').checked;
+            item.querySelectorAll('.item-cantidad input').forEach(function (campo) {
+                campo.disabled = !marcado;
+            });
+        });
+    }
+
     // Dibuja el resumen del carrito dentro de <div id="resumen">
     function mostrarResumen() {
+        sincronizarCantidades();
         const carrito = leerCarrito();
         resumen.innerHTML = '';                      // se limpia el contenido anterior
 
