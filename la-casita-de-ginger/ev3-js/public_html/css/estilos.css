@@ -1166,6 +1166,36 @@ main section > figure {
     color: rgb(255, 214, 170);
 }
 
+/* Opciones de contacto: cada casilla con su texto, en una lista */
+.opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    margin: 8px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.opciones li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;                 /* la casilla nunca queda separada de su texto */
+}
+
+.opciones input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: rgb(165, 62, 20);
+}
+
+@media (max-width: 600px) {
+    .opciones {
+        flex-direction: column;          /* en el celular, una opción por línea */
+    }
+}
+
 .contacto-contenido .acciones {
     justify-content: center;
 }

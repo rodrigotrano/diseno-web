@@ -367,15 +367,13 @@
                 </fieldset>
 
                 <fieldset>
-                    <legend>¿Cómo prefieres que te contactemos?</legend>
-                    <p>
-                        <input type="checkbox" id="contacto-correo" name="medio_contacto" value="correo" checked>
-                        <label for="contacto-correo">Correo electrónico</label>
-                        <input type="checkbox" id="contacto-whatsapp" name="medio_contacto" value="whatsapp">
-                        <label for="contacto-whatsapp">WhatsApp</label>
-                        <input type="checkbox" id="contacto-instagram" name="medio_contacto" value="instagram">
-                        <label for="contacto-instagram">Instagram</label>
-                    </p>
+                    <legend>¿Cómo te contactamos?</legend>
+                    <!-- Cada casilla va junto a su texto, para que no se separen al bajar de línea -->
+                    <ul class="opciones">
+                        <li><input type="checkbox" id="contacto-correo" name="medio_contacto" value="correo" checked> <label for="contacto-correo">Correo electrónico</label></li>
+                        <li><input type="checkbox" id="contacto-whatsapp" name="medio_contacto" value="whatsapp"> <label for="contacto-whatsapp">WhatsApp</label></li>
+                        <li><input type="checkbox" id="contacto-instagram" name="medio_contacto" value="instagram"> <label for="contacto-instagram">Instagram</label></li>
+                    </ul>
                 </fieldset>
 
                 <p class="acciones">
