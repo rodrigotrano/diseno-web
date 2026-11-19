@@ -295,6 +295,7 @@ a:focus {
 
 @media (prefers-reduced-motion: reduce) {
     .ginger-saluda,
+    .foto-proximamente img,
     .ginger-animado,
     .nieve {
         animation: none !important;
@@ -648,6 +649,40 @@ figcaption {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     transition: transform 0.4s;
+}
+
+/* Tortas sin foto propia todavía: Ginger con el aviso "Foto próximamente" */
+.foto-proximamente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--crema);
+    background-image: radial-gradient(rgba(165, 62, 20, 0.08) 2px, transparent 3px);
+    background-size: 22px 22px;
+}
+
+.foto-proximamente img {
+    width: auto;
+    height: 150px;                       /* alto fijo: así la caja respeta su proporción 4:3 */
+    animation: saludar 2.4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.foto-proximamente span {
+    color: var(--tostado);
+    font-family: "Alegreya", Georgia, serif;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.item-tarjeta img.sin-foto {
+    padding: 6px;
+    background-color: var(--crema);
+    object-fit: contain;
 }
 
 .foto-torta {

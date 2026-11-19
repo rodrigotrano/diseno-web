@@ -48,14 +48,9 @@ El número final (`-01`, `-02`…) permite agregar más fotos del mismo producto
 | `img/tortas/afiches/afi-pina-clasica-01.jpg` | Afiche Torta de Piña | 667×1000 | 98 KB | productos.html | Foto enviada nov-2026 |
 | `img/tortas/afiches/afi-sra-ginger-01.jpg` | Afiche Torta Sra. Ginger | 750×1000 | 137 KB | productos.html | Foto enviada nov-2026 |
 | `img/tortas/carta/tor-3-leches-maracuya-01.jpg` | Torta 3 Leches Maracuyá | 562×1000 | 98 KB | productos.html, pedido.html, estilos.css | Foto enviada nov-2026 |
-| `img/tortas/carta/tor-5-leches-01.jpg` | Torta 5 Leches | 540×228 | 32 KB | productos.html, pedido.html | Recorte de la carta (reemplazar cuando haya foto) |
-| `img/tortas/carta/tor-7-sabores-01.jpg` | Torta 7 Sabores | 540×264 | 46 KB | productos.html, pedido.html | Recorte de la carta (reemplazar cuando haya foto) |
 | `img/tortas/carta/tor-amor-01.jpg` | Torta Amor | 1000×667 | 95 KB | productos.html, pedido.html | Foto enviada nov-2026 |
 | `img/tortas/carta/tor-caluga-01.jpg` | Torta Caluga | 1000×960 | 87 KB | productos.html, pedido.html | Foto enviada nov-2026 |
 | `img/tortas/carta/tor-celestial-01.jpg` | Torta Celestial | 875×1000 | 215 KB | index.html, productos.html, pedido.html | Foto enviada nov-2026 |
-| `img/tortas/carta/tor-martuca-01.jpg` | Torta Martuca | 534×276 | 40 KB | productos.html, pedido.html | Recorte de la carta (reemplazar cuando haya foto) |
-| `img/tortas/carta/tor-mocca-nuez-01.jpg` | Torta Mocca Nuez | 540×230 | 33 KB | productos.html, pedido.html | Recorte de la carta (reemplazar cuando haya foto) |
-| `img/tortas/carta/tor-pie-de-limon-01.jpg` | Torta Pie de Limón | 534×312 | 38 KB | productos.html, pedido.html | Recorte de la carta (reemplazar cuando haya foto) |
 | `img/tortas/carta/tor-pina-clasica-01.jpg` | Torta de Piña Clásica | 1000×931 | 129 KB | productos.html, pedido.html | Foto enviada nov-2026 |
 | `img/tortas/carta/tor-pompadour-01.jpg` | Torta Pompadour | 1000×1000 | 172 KB | index.html, productos.html, pedido.html, estilos.css | Foto enviada nov-2026 |
 | `img/tortas/carta/tor-sra-ginger-01.jpg` | Torta Sra. Ginger | 1000×600 | 129 KB | productos.html, pedido.html | Foto enviada nov-2026 |

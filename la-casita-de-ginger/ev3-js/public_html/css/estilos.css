@@ -834,6 +834,46 @@ main section > figure {
     transform: scale(1.05) rotate(-2deg);
 }
 
+/* Tortas sin foto propia todavía: Ginger con el aviso "Foto próximamente" */
+.carta-contenido .foto-proximamente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    width: 130px;
+    height: 130px;
+    background-color: rgba(253, 240, 225, 0.12);
+    border: 2px dashed rgba(255, 214, 170, 0.5);
+    border-radius: 12px;
+}
+
+.carta-contenido .foto-proximamente img {
+    width: auto;
+    height: 82px;
+    border-radius: 0;
+}
+
+.carta-contenido .producto:hover .foto-proximamente img {
+    transform: none;
+}
+
+.foto-proximamente span {
+    margin-top: 4px;
+    color: rgb(255, 214, 170);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.item-tarjeta img.sin-foto {
+    padding: 8px;
+    background-color: rgb(253, 240, 225);
+    object-fit: contain;
+}
+
 /* ---- Visor de fotos ampliadas (lightbox) ---- */
 .visor {
     position: fixed;
@@ -2248,6 +2288,16 @@ a.red:hover {
     .carta-contenido .producto img {
         width: 90px;
         height: 90px;
+    }
+
+    .carta-contenido .foto-proximamente {
+        width: 90px;
+        height: 90px;
+    }
+
+    .carta-contenido .foto-proximamente img {
+        width: auto;
+        height: 52px;
     }
 
 }
