@@ -2038,6 +2038,20 @@ main section > figure {
         font-size: 1.3rem;
         letter-spacing: 1px;
     }
+
+    /* el saludo de la portada se ajusta al ancho para no cortarse */
+    .saludo {
+        font-size: 6.4vw;
+        letter-spacing: 4px;
+    }
+
+    /* los iconos de redes de la portada bajan bajo el texto para no taparlo */
+    .redes-circulos {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 16px;
+    }
 }
 
 /* Formulario de comentarios (comentario.js) */
