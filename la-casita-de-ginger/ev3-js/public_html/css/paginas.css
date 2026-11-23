@@ -1,0 +1,1106 @@
+/* ==========================================================
+   La Casita de Ginger · paginas.css
+   Estilos propios de cada página (inicio, productos, contacto, nosotros).
+   Diseño Web · Evaluación N°3 · Rodrigo Tranolao
+   ========================================================== */
+
+/* ---------- 5. PORTADA DEL INICIO (sin desplazamiento) ---------- */
+
+/* En el inicio todo cabe en una sola pantalla */
+.inicio {
+    height: 100vh;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+}
+
+/* El encabezado se centra sobre el recuadro grande */
+.inicio .encabezado {
+    left: calc(16px + (100% - 48px) * 0.75 / 2);
+}
+
+.portada {
+    flex: 1;
+    min-height: 0;
+    display: grid;                   /* recuadro grande + columna de tarjetas */
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);   /* 75% recuadro, 25% tarjetas */
+    gap: 16px;
+}
+
+/* Recuadro grande de bienvenida */
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;                       /* ocupa toda su celda de la grilla */
+    padding: 110px 24px 40px 24px;
+    overflow: hidden;
+    border-radius: var(--radio-grande);
+    background-color: rgb(110, 50, 18);
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.55), rgba(72, 33, 9, 0.85)),
+        url("../img/local/loc-fachada-01.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+/* Capa de nieve animada sobre la foto */
+.nieve {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.9) 2px, transparent 3px),
+        radial-gradient(rgba(255, 255, 255, 0.6) 1.5px, transparent 2px);
+    background-size: 120px 120px, 70px 70px;
+    animation: nevar 14s linear infinite;
+}
+
+/* Contenedor de Ginger: ocupa todo el ancho y lo centra.
+   ".hero > .hero-ginger" es más específico que "main section > figure",
+   así anula el float y el ancho de 40% de las otras imágenes. */
+.hero > .hero-ginger {
+    position: relative;              /* queda por encima de la nieve */
+    display: flex;
+    justify-content: center;
+    float: none;
+    width: 100%;
+    height: 46%;
+    margin: 0 0 8px 0;
+}
+
+/* Animación por cuadros ("sprite"): una sola imagen con 5 poses de Ginger.
+   Cambiando background-position se muestra una pose a la vez. */
+.ginger-animado {
+    height: 100%;
+    min-height: 240px;
+    aspect-ratio: 320 / 396;         /* proporción de cada cuadro del sprite */
+    background-image: url("../img/marca/mar-ginger-animacion.webp");
+    background-size: 500% 100%;      /* 5 cuadros a lo ancho */
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+    animation:
+        poses 8s steps(1, end) infinite,   /* cambia de pose sin transición */
+        recorrido 8s linear infinite;      /* avanza mientras corre */
+}
+
+.hero-texto {
+    position: relative;
+    animation: aparecer 1s ease both;
+}
+
+.frase-marca {
+    margin: 0;
+    color: var(--vainilla);
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 0;
+    color: var(--vainilla);
+}
+
+.saludo {
+    display: block;
+    font-size: 7rem;
+    font-weight: 500;
+    letter-spacing: 8px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.saludo-sub {
+    display: block;
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.lema {
+    margin: 6px 0 0 0;
+    color: var(--durazno);
+}
+
+/* Botones redondos de redes sociales en la portada (sin colores de marca) */
+.redes-circulos {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.redes-circulos a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--vainilla);
+    border-radius: 50%;
+    color: var(--cafe);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.redes-circulos a:hover {
+    transform: scale(1.12);
+    background-color: var(--blanco);
+    color: var(--cafe);
+}
+
+/* Columna de tres tarjetas con imagen */
+.tarjetas {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 16px;
+    min-height: 0;
+    margin: 0;
+}
+
+.tarjeta {
+    position: relative;
+    display: block;
+    overflow: hidden;                /* recorta la imagen al hacer zoom */
+    border-radius: var(--radio-grande);
+    animation: aparecer 0.8s ease both;
+}
+
+.tarjeta:nth-child(2) { animation-delay: 0.15s; }
+.tarjeta:nth-child(3) { animation-delay: 0.3s; }
+
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.6s ease; /* transición del zoom */
+}
+
+.tarjeta:hover img {
+    transform: scale(1.08);
+}
+
+/* Etiqueta en la esquina inferior derecha */
+.tarjeta-etiqueta {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px 10px 18px;
+    background-color: var(--cafe);
+    border-top-left-radius: 20px;
+    color: var(--vainilla);
+    font-family: var(--fuente-titulos);
+    font-size: 1.05rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.flecha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--vainilla);
+    border-radius: 50%;
+    color: var(--cafe);
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover .flecha {
+    transform: translateX(4px);
+}
+
+/* En el inicio el pie es una línea pequeña */
+.inicio .pie {
+    padding: 0;
+}
+
+.inicio .creditos {
+    font-size: 0.75rem;
+}
+
+
+/* ---------- 6. PÁGINAS INTERNAS ---------- */
+
+main > section,
+main > nav,
+.portada-interna {
+    max-width: 1100px;
+    margin-left: auto;               /* márgenes automáticos = centrado */
+    margin-right: auto;
+}
+
+/* En la portada del inicio el recuadro y las tarjetas ocupan toda su celda
+   de la grilla, sin el límite de 1100px (más específico que la regla anterior) */
+.portada > .hero,
+.portada > .tarjetas {
+    max-width: none;
+    margin: 0;
+}
+
+.portada-interna {
+    padding: 24px 0 32px 0;
+    text-align: center;
+    animation: aparecer 0.8s ease both;
+}
+
+.portada-interna h1 {
+    margin-bottom: 8px;
+    color: var(--vainilla);
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.portada-interna p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--vainilla);
+    font-size: 1.1rem;
+}
+
+/* Cada sección es un recuadro vainilla con esquinas redondeadas */
+main section {
+    display: flow-root;              /* contiene las imágenes flotantes */
+    margin-bottom: 16px;
+    padding: 40px;
+    background-color: var(--vainilla);
+    border-radius: var(--radio-grande);
+}
+
+/* Imágenes de las secciones: flotan a la derecha del texto */
+main section > figure {
+    float: right;
+    width: 40%;
+    margin: 0 0 16px 24px;
+}
+
+/* En la sección de Ginger la imagen va a la izquierda */
+#ginger > figure {
+    float: left;
+    margin: 0 24px 16px 0;
+}
+
+
+
+/* ---------- 6b. PÁGINA DE PRODUCTOS COMO CARTA ---------- */
+
+.pagina-carta {
+    padding-top: 16px;               /* la carta parte desde arriba */
+}
+
+
+.carta {
+    display: grid;                   /* dos columnas: portada y contenido */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+/* Portada fija: queda quieta mientras se recorre la carta */
+.carta-portada {
+    position: sticky;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: calc(100vh - 32px);
+    margin: 0;
+    padding: 40px;
+    border-radius: var(--radio-grande);
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.72), rgba(72, 33, 9, 0.92)),
+        url("../img/tortas/carta/tor-3-leches-maracuya-01.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.carta-portada h1 {
+    margin: 0 0 12px 0;
+    color: var(--vainilla);
+    font-size: clamp(2.6rem, 6.5vw, 5rem);   /* se achica en tablets para no desbordar */
+    font-weight: 500;
+    letter-spacing: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+}
+
+.carta-portada p {
+    max-width: 520px;
+    margin: 0;
+    color: var(--vainilla);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);   /* contraste del texto sobre la foto */
+}
+
+/* Contenido de la carta, entre dos líneas finas verticales */
+.carta-contenido {
+    padding: 110px 7% 40px 7%;       /* deja espacio al encabezado flotante */
+    border-left: 1px solid rgba(253, 240, 225, 0.25);
+    border-right: 1px solid rgba(253, 240, 225, 0.25);
+    color: var(--vainilla);
+}
+
+.carta-contenido > nav,
+.carta-contenido > section {
+    max-width: none;
+}
+
+/* Las secciones de la carta no son recuadros: van sobre el fondo café */
+.carta-contenido section {
+    margin: 0 0 56px 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+
+/* Títulos centrados con líneas decorativas a los lados */
+.carta-contenido h2 {
+    display: flex;                   /* texto y líneas decorativas en una fila */
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border: none;
+    color: var(--vainilla);
+    font-size: 1.9rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.carta-contenido h2::before,
+.carta-contenido h2::after {
+    content: "";
+    display: inline-block;
+    flex: 0 0 36px;
+    height: 1px;
+    background-color: var(--durazno);
+}
+
+.carta-contenido section > p {
+    text-align: center;
+}
+
+.carta-contenido a {
+    color: var(--durazno);
+}
+
+.carta-contenido .boton {
+    color: var(--blanco);
+}
+
+.carta-contenido .boton-secundario {
+    border-color: var(--vainilla);
+    color: var(--vainilla);
+}
+
+/* Cada producto: foto cuadrada a la izquierda y texto a la derecha */
+.carta-contenido .grilla-productos {
+    flex-direction: column;
+    gap: 32px;
+}
+
+.carta-contenido .producto {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    column-gap: 22px;
+    flex: none;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.carta-contenido .producto:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Enlace que envuelve la miniatura: al hacer clic abre la foto ampliada */
+.carta-contenido .ampliar {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    cursor: zoom-in;
+}
+
+/* Lupa "+" que indica que la foto se puede ampliar */
+.carta-contenido .ampliar::after {
+    content: "+";
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 28px;
+    height: 28px;
+    background-color: var(--vainilla);
+    border-radius: 50%;
+    color: var(--cafe);
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    opacity: 0.85;
+}
+
+.carta-contenido .producto img {
+    width: 130px;
+    height: 130px;
+    margin: 0;
+    border-radius: var(--radio-chico);
+    transition: transform 0.4s;
+}
+
+.carta-contenido .producto:hover img {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Tortas sin foto propia todavía: Ginger con el aviso "Foto próximamente" */
+.carta-contenido .foto-proximamente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    width: 130px;
+    height: 130px;
+    background-color: rgba(253, 240, 225, 0.12);
+    border: 2px dashed rgba(255, 214, 170, 0.5);
+    border-radius: var(--radio-chico);
+}
+
+.carta-contenido .foto-proximamente img {
+    width: auto;
+    height: 82px;
+    border-radius: 0;
+}
+
+.carta-contenido .producto:hover .foto-proximamente img {
+    transform: none;
+}
+
+.foto-proximamente span {
+    margin-top: 4px;
+    color: var(--durazno);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.item-tarjeta img.sin-foto {
+    padding: 8px;
+    background-color: var(--vainilla);
+    object-fit: contain;
+}
+
+/* ---- Visor de fotos ampliadas (lightbox) ---- */
+.visor {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;                   /* oculto hasta que se elige */
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.visor:target {
+    display: flex;                   /* se muestra cuando la URL termina en #ver-... */
+    animation: fundido 0.3s ease;
+}
+
+/* Fondo oscuro: al hacer clic en él se cierra */
+.visor-fondo {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(30, 14, 4, 0.88);
+    cursor: zoom-out;
+}
+
+.visor figure {
+    position: relative;              /* queda sobre el fondo oscuro */
+    width: min(72vw, 608px);         /* 20% más pequeño que antes */
+    max-height: 92vh;
+    margin: 0;
+    padding: 16px;
+    background-color: var(--vainilla);
+    border-radius: 20px;
+    animation: aparecer 0.35s ease;
+}
+
+.visor figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 72vh;                /* los afiches verticales no se salen de la pantalla */
+    object-fit: contain;
+    border-radius: var(--radio-chico);
+}
+
+/* selector más específico para ganarle al color de .carta-contenido figcaption */
+.carta-contenido .visor figcaption {
+    margin-top: 12px;
+    color: var(--cafe);
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.visor .cerrar {
+    top: 24px;
+    left: auto;
+    right: 24px;
+    border-color: var(--vainilla);
+    color: var(--vainilla);
+}
+
+/* Nombre del producto con línea punteada, como en una carta */
+.carta-contenido .producto h3 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 4px 0 6px 0;
+    color: var(--durazno);
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.carta-contenido .producto h3::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px dotted rgba(253, 240, 225, 0.45);
+}
+
+.carta-contenido .producto p {
+    margin: 0 0 8px 0;
+    font-size: 0.92rem;
+}
+
+/* Precios en una línea */
+.carta-contenido .producto ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    padding: 0;
+    background: none;
+    font-size: 0.92rem;
+}
+
+.carta-contenido .producto strong {
+    color: var(--durazno);
+}
+
+.carta-contenido figcaption {
+    color: var(--vainilla);
+}
+
+.carta-contenido li {
+    margin-bottom: 4px;
+}
+
+/* ---------- 6c. PÁGINA DE CONTACTO EN CUADROS ---------- */
+
+/* Misma portada fija de la carta, con otra foto de fondo */
+.portada-contacto {
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.72), rgba(72, 33, 9, 0.92)),
+        url("../img/local/loc-fachada-01.jpg");
+}
+
+.portada-pedido {
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.72), rgba(72, 33, 9, 0.92)),
+        url("../img/tortas/carta/tor-pompadour-01.jpg");
+}
+
+/* Pasos numerados para hacer un pedido */
+.pasos {
+    margin: 0;
+    padding-left: 24px;
+    text-align: left;
+}
+
+.pasos li {
+    margin-bottom: 10px;
+}
+
+.pasos li::marker {
+    color: var(--durazno);
+    font-weight: 700;
+}
+
+/* Grilla de cuadros: dos columnas */
+.contacto-contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    padding-top: 96px;               /* espacio para el encabezado flotante */
+    color: var(--vainilla);
+}
+
+/* Cuadro con borde fino y esquinas redondeadas */
+.contacto-contenido .cuadro {
+    max-width: none;
+    margin: 0;
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(253, 240, 225, 0.35);
+    border-radius: var(--radio-grande);
+    text-align: center;
+}
+
+.contacto-contenido h2 {
+    border: none;
+    color: var(--vainilla);
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.contacto-contenido a {
+    color: var(--durazno);
+}
+
+.contacto-contenido .boton {
+    color: var(--blanco);
+}
+
+/* .boton.boton-whatsapp tiene más especificidad que .boton, por eso gana */
+.boton.boton-whatsapp {
+    background-color: var(--verde);
+    border-color: var(--verde);
+}
+
+/* Cuatro fotos en una grilla de 2 x 2 */
+.fotos-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.fotos-contacto img {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.4s;
+}
+
+.fotos-contacto a {
+    display: block;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.fotos-contacto img:hover {
+    transform: scale(1.04);
+}
+
+.fotos-instagram {
+    grid-column: 1 / -1;             /* ocupa las dos columnas */
+    margin: 0;
+    text-align: center;
+}
+
+.fotos-instagram a {
+    display: inline;
+    color: var(--durazno);
+}
+
+/* Cuadro del mapa: el mapa ocupa todo el cuadro */
+.contacto-contenido .cuadro-mapa {
+    position: relative;
+    min-height: 380px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.cuadro-mapa .mapa {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+/* Etiqueta "Cómo llegar" en la esquina, igual que las tarjetas del inicio */
+.cuadro-mapa .tarjeta-etiqueta {
+    color: var(--vainilla);
+    text-decoration: none;
+}
+
+/* Datos de contacto: título pequeño y valor en la misma fila */
+.datos-contacto {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px 16px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.datos-contacto dt {
+    color: var(--durazno);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.9;
+    text-transform: uppercase;
+}
+
+.datos-contacto dd {
+    margin: 0;
+    overflow-wrap: anywhere;         /* el correo largo puede cortarse en celular */
+}
+
+.datos-contacto address {
+    font-style: normal;
+}
+
+.nota {
+    font-size: 0.9rem;
+}
+
+/* El formulario ocupa las dos columnas */
+.contacto-contenido .cuadro-ancho {
+    grid-column: 1 / -1;
+}
+
+.cuadro-ancho .formulario {
+    margin: 24px auto 0 auto;
+    text-align: left;
+}
+
+.contacto-contenido .formulario fieldset {
+    border-color: rgba(253, 240, 225, 0.35);
+}
+
+.contacto-contenido .formulario legend {
+    color: var(--durazno);
+}
+
+/* Opciones de contacto: cada casilla con su texto, en una lista */
+.opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    margin: 8px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.opciones li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;                 /* la casilla nunca queda separada de su texto */
+}
+
+.opciones input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--caramelo);
+}
+
+@media (max-width: 600px) {
+    .opciones {
+        flex-direction: column;          /* en el celular, una opción por línea */
+    }
+}
+
+.contacto-contenido .acciones {
+    justify-content: center;
+}
+
+.contacto-contenido .boton-secundario {
+    border-color: var(--vainilla);
+    color: var(--vainilla);
+}
+
+/* ---------- 6d. PÁGINA NOSOTROS (reutiliza los cuadros de contacto) ---------- */
+
+.portada-nosotros {
+    background-image:
+        linear-gradient(rgba(72, 33, 9, 0.72), rgba(72, 33, 9, 0.92)),
+        url("../img/local/loc-stand-navideno-01.jpg");
+}
+
+/* Fotos que ocupan un cuadro completo de la grilla */
+.foto-cuadro {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+    border-radius: var(--radio-grande);
+}
+
+.nosotros-contenido .cuadro p {
+    font-size: 0.98rem;
+}
+
+.nosotros-contenido .cuadro-ancho {
+    text-align: left;
+}
+
+.nosotros-contenido .cuadro-ancho h2 {
+    text-align: center;
+}
+
+/* Imagen provisoria: se muestra completa, sin recortar */
+.foto-cuadro.boceto {
+    object-fit: contain;
+    background-color: var(--vainilla);
+}
+
+/* Estrellitas decorativas sobre Misión y Visión */
+.adorno {
+    margin: 0 0 4px 0;
+    color: var(--durazno);
+    letter-spacing: 6px;
+}
+
+/* Cuadro de Ginger: imagen animada a la izquierda y texto a la derecha */
+.cuadro-ginger {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.cuadro-ginger > figure.ginger-saluda {
+    flex: 0 0 200px;
+    float: none;
+    width: auto;
+    margin: 0;
+}
+
+.ginger-saluda img {
+    animation: saludar 2.4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.ginger-saluda figcaption {
+    margin-top: 8px;
+    color: var(--vainilla);
+    font-style: normal;
+    text-align: center;
+}
+
+/* Ilustración flotando a la derecha del listado */
+.nosotros-contenido .patinadora {
+    float: right;
+    width: 200px;
+    margin: 0 0 16px 24px;
+}
+
+.nosotros-contenido .patinadora figcaption {
+    color: var(--vainilla);
+}
+
+.nosotros-contenido .identidad {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+}
+
+.nosotros-contenido .identidad dt {
+    color: var(--durazno);
+}
+
+.nosotros-contenido .identidad dd {
+    margin: 0;
+    border-left-color: rgba(253, 240, 225, 0.3);
+}
+
+.nosotros-contenido .testimonio {
+    color: var(--cafe);
+}
+
+.nosotros-contenido .testimonio h3 {
+    color: var(--caramelo);
+}
+
+.nosotros-contenido .formulario {
+    margin: 24px auto 0 auto;
+}
+
+/* ---------- 6e. ACTUALIZACIÓN NOVIEMBRE ---------- */
+
+/* Horario con línea punteada entre el día y la hora */
+.horario {
+    margin: 16px 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.horario li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+}
+
+.horario li::before {
+    content: "";
+    order: 1;                        /* la línea queda entre el día y la hora */
+    flex: 1;
+    border-bottom: 2px dotted rgba(253, 240, 225, 0.4);
+}
+
+.horario li span:last-child {
+    order: 2;
+    color: var(--durazno);
+}
+
+/* Historia en dos columnas de texto (en celular queda en una) */
+.historia-texto {
+    columns: 2;
+    column-gap: 40px;
+    column-rule: 1px solid rgba(253, 240, 225, 0.25);
+}
+
+.historia-texto p {
+    margin-top: 0;
+    break-inside: avoid;             /* un párrafo no se corta entre columnas */
+}
+
+.destacado {
+    padding: 12px 16px;
+    border-left: 4px solid var(--durazno);
+    background-color: rgba(253, 240, 225, 0.08);
+    border-radius: 8px;
+}
+
+/* Etiqueta "Nuevo" en la Torta Celestial */
+.producto-nuevo h3::before {
+    content: "Nuevo";
+    order: -1;
+    padding: 2px 8px;
+    background-color: var(--verde);
+    border-radius: var(--radio-pildora);
+    color: var(--blanco);
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* Etiqueta "Favorita" en la Torta Sra. Ginger */
+.producto-favorito h3::before {
+    content: "★ Favorita";
+    order: -1;
+    padding: 2px 8px;
+    background-color: var(--durazno);
+    border-radius: var(--radio-pildora);
+    color: var(--cafe);
+    font-family: var(--fuente-texto);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* Sección "Favoritas de la casa": dos afiches lado a lado */
+.favoritas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.favorita {
+    padding: 12px 12px 4px 12px;
+    background-color: var(--vainilla);
+    border: 2px solid var(--durazno);
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.favorita:hover {
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
+.favorita img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radio-chico);
+}
+
+/* el afiche horizontal se encuadra a la derecha para mostrar la torta completa */
+.favorita img.encuadre-derecha {
+    object-position: right center;
+}
+
+.carta-contenido .favorita h3 {
+    margin: 10px 0 0 0;
+    color: var(--cafe);
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.carta-contenido .favorita .boton {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+}
+
+.carta-contenido .favorita .boton-secundario {
+    border-color: var(--caramelo);
+    color: var(--caramelo);
+}
+
+.carta-contenido .subtitulo-carta {
+    margin-top: 32px;
+    color: var(--durazno);
+    font-family: var(--fuente-titulos);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Galería de tortas temáticas: grilla de fotos verticales */
+.galeria-tematicas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.galeria-tematicas figure {
+    max-width: none;
+}
+
+.galeria-tematicas img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}

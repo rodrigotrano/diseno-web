@@ -1,0 +1,192 @@
+/* ==========================================================
+   La Casita de Ginger · base.css
+   Variables de la plantilla, estilos generales y animaciones.
+   Orden de carga: base > estructura > paginas > componentes > responsive
+   Evaluación N°3 - Diseño Web (IPLACEX)
+
+   Diseño inspirado en la estructura de portadas de cafeterías
+   temáticas: marco de color, recuadros grandes con esquinas
+   redondeadas, menú flotante y menú completo a pantalla completa.
+
+   Paleta entregada por el emprendimiento (ver variables en :root):
+     Vainilla  rgb(253, 240, 225)  -> fondos claros y textos sobre café
+     Café      rgb(72, 33, 9)      -> marco, textos y pie de página
+     Caramelo  rgb(165, 62, 20)    -> títulos, botones y detalles
+   ========================================================== */
+
+/* ---------- 0. VARIABLES DE LA PLANTILLA (propiedades personalizadas) ----------
+   Todos los colores, tipografías y bordes de la marca se definen una sola vez.
+   Para cambiar la identidad del sitio basta con modificar estos valores. */
+
+:root {
+    /* Paleta de La Casita de Ginger */
+    --vainilla: rgb(253, 240, 225);      /* fondos claros y textos sobre café */
+    --cafe: rgb(72, 33, 9);              /* marco, textos y pie de página */
+    --caramelo: rgb(165, 62, 20);        /* títulos, botones y detalles */
+    --durazno: rgb(255, 214, 170);       /* acentos sobre fondo café */
+    --naranjo-claro: rgb(255, 196, 140); /* avisos sobre fondo café */
+    --arena: rgb(234, 214, 190);
+    --cafe-claro: rgb(191, 165, 138);
+    --verde: rgb(31, 122, 70);           /* WhatsApp y confirmaciones */
+    --blanco: rgb(255, 255, 255);
+
+    /* Tipografías */
+    --fuente-titulos: "Alegreya", Georgia, serif;
+    --fuente-texto: "Nunito", Arial, sans-serif;
+
+    /* Bordes redondeados */
+    --radio-chico: 12px;
+    --radio-grande: 24px;
+    --radio-pildora: 999px;
+}
+
+
+/* ---------- 1. ESTILOS GENERALES (selectores de elemento) ---------- */
+
+* {
+    box-sizing: border-box;          /* el ancho incluye relleno y borde */
+}
+
+html {
+    scroll-behavior: smooth;         /* desplazamiento suave a las secciones */
+}
+
+body {
+    margin: 0;
+    padding: 110px 16px 16px 16px;   /* espacio para el encabezado flotante */
+    background-color: var(--cafe);       /* marco café alrededor del sitio */
+    color: var(--cafe);
+    font-family: var(--fuente-texto);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--caramelo);
+    line-height: 1.15;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 3px dotted var(--caramelo);   /* detalle tipo "glaseado" */
+}
+
+h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: var(--caramelo);
+}
+
+a {
+    color: var(--caramelo);
+    font-weight: 700;
+}
+
+a:hover {
+    color: var(--cafe);
+}
+
+img {
+    max-width: 100%;                 /* las imágenes nunca se salen de su caja */
+    height: auto;
+    border-radius: var(--radio-chico);
+}
+
+figure {
+    margin: 0 0 16px 0;
+}
+
+figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Contorno visible al navegar con teclado (accesibilidad) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgb(46, 110, 64);
+    outline-offset: 2px;
+}
+
+
+/* Íconos SVG dentro del HTML (redes sociales y categorías): toman el color del texto */
+.icono {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+}
+
+/* ---------- 2. ANIMACIONES (@keyframes) ---------- */
+
+/* Ginger se balancea y "saluda" */
+@keyframes saludar {
+    0%, 100% { transform: rotate(-5deg) translateY(0); }
+    50%      { transform: rotate(5deg) translateY(-14px); }
+}
+
+/* Los elementos aparecen subiendo suavemente */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* La nieve cae: se desplaza la posición del fondo */
+@keyframes nevar {
+    from { background-position: 0 0, 0 0; }
+    to   { background-position: 40px 600px, -30px 400px; }
+}
+
+/* Secuencia de poses (8 s): corre alternando dos pasos, se detiene,
+   vuelve a correr, se detiene con las manos en la cintura y saluda.
+   Cuadros del sprite: 0% corriendo A, 25% parado, 50% corriendo B,
+   75% manos en la cintura, 100% saludando. */
+@keyframes poses {
+    0%   { background-position: 0% 0; }
+    3%   { background-position: 50% 0; }
+    6%   { background-position: 0% 0; }
+    9%   { background-position: 50% 0; }
+    12%  { background-position: 0% 0; }
+    15%  { background-position: 50% 0; }
+    18%  { background-position: 0% 0; }
+    21%  { background-position: 25% 0; }     /* se detiene */
+    30%  { background-position: 0% 0; }     /* vuelve a correr */
+    33%  { background-position: 50% 0; }
+    36%  { background-position: 0% 0; }
+    39%  { background-position: 50% 0; }
+    42%  { background-position: 0% 0; }
+    45%  { background-position: 50% 0; }
+    48%  { background-position: 75% 0; }    /* manos en la cintura */
+    58%  { background-position: 100% 0; }   /* saluda hasta el final */
+    100% { background-position: 100% 0; }
+}
+
+/* Ginger cruza corriendo desde la izquierda y se detiene al centro */
+@keyframes recorrido {
+    0%   { transform: translateX(-460px); opacity: 0; }
+    3%   { opacity: 1; }
+    21%  { transform: translateX(-200px); }
+    30%  { transform: translateX(-200px); }
+    48%  { transform: translateX(0); }
+    95%  { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(0); opacity: 0; }
+}
+
+/* El menú completo aparece con un fundido */
+@keyframes fundido {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
