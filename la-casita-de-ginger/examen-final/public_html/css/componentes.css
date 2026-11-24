@@ -1,0 +1,663 @@
+/* ==========================================================
+   La Casita de Ginger · componentes.css
+   Componentes reutilizables: botones, listas, tarjetas, formularios y elementos creados con JavaScript.
+   Diseño Web · Evaluación N°3 · Rodrigo Tranolao
+   ========================================================== */
+
+/* ---------- 7. BOTONES (clase reutilizable) ---------- */
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 22px;
+    border: 2px solid var(--caramelo);
+    border-radius: var(--radio-pildora);
+    background-color: var(--caramelo);
+    color: var(--blanco);
+    font-family: var(--fuente-texto);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton:hover {
+    background-color: var(--cafe);
+    border-color: var(--cafe);
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: var(--caramelo);
+}
+
+
+/* ---------- 8. LISTAS ESPECIALES ---------- */
+
+.menu-categorias {
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--vainilla);
+}
+
+.menu-categorias ul {
+    display: flex;                   /* categorías como "etiquetas" en fila */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-categorias a {
+    display: block;
+    padding: 6px 16px;
+    border: 1px solid var(--vainilla);
+    border-radius: var(--radio-pildora);
+    color: var(--vainilla);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.menu-categorias a:hover {
+    background-color: var(--vainilla);
+    color: var(--cafe);
+}
+
+.identidad dt {
+    font-weight: 700;
+    color: var(--caramelo);
+}
+
+.identidad dd {
+    margin: 0 0 12px 0;
+    padding-left: 12px;
+    border-left: 4px solid var(--arena);
+}
+
+.lista-contacto li {
+    margin-bottom: 8px;
+}
+
+
+/* ---------- 9. PRODUCTOS EN TARJETAS ---------- */
+
+.grilla-productos {
+    display: flex;                   /* tarjetas en filas que se ajustan solas */
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 24px 0;
+}
+
+.producto {
+    flex: 1 1 300px;                 /* cada tarjeta mide al menos 300px */
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: var(--blanco);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(72, 33, 9, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-6px);     /* la tarjeta se eleva al pasar el mouse */
+    box-shadow: 0 12px 24px rgba(72, 33, 9, 0.18);
+}
+
+.producto img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;               /* recorta la foto sin deformarla */
+    margin-bottom: 12px;
+}
+
+.producto p {
+    flex-grow: 1;                    /* iguala la altura de las tarjetas */
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+}
+
+.producto ul {
+    margin: 0;
+    padding: 10px 12px;
+    list-style: none;
+    background-color: var(--vainilla);
+    border-radius: 10px;
+}
+
+.galeria {
+    display: flex;                   /* imágenes lado a lado */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.galeria figure {
+    flex: 1 1 260px;
+    max-width: 360px;
+}
+
+
+/* ---------- 10. TABLA DE PRECIOS ---------- */
+
+.tabla-precios {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: var(--blanco);
+}
+
+.tabla-precios caption {
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.tabla-precios th,
+.tabla-precios td {
+    padding: 10px 14px;
+    border: 1px solid var(--arena);
+    text-align: left;
+}
+
+.tabla-precios thead th {
+    background-color: var(--cafe);
+    color: var(--vainilla);
+}
+
+.tabla-precios tbody tr:nth-child(even) {
+    background-color: var(--vainilla);   /* filas alternadas */
+}
+
+
+/* ---------- 11. TESTIMONIOS ---------- */
+
+.testimonio {
+    margin: 16px 0 24px 0;
+    padding: 24px;
+    background-color: var(--blanco);
+    border-left: 6px solid var(--caramelo);
+    border-radius: var(--radio-chico);
+}
+
+.testimonio blockquote {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+
+/* ---------- 12. FORMULARIOS ---------- */
+
+.formulario {
+    max-width: 640px;
+}
+
+.formulario fieldset {
+    min-width: 0;                    /* evita que la tabla ensanche el fieldset en celular */
+    margin: 0 0 20px 0;
+    padding: 16px 20px;
+    border: 2px solid var(--arena);
+    border-radius: 14px;
+}
+
+.formulario legend {
+    padding: 0 8px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.3rem;
+    color: var(--caramelo);
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="tel"],
+.formulario input[type="date"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--cafe-claro);
+    border-radius: 8px;
+    background-color: var(--blanco);
+    color: var(--cafe);
+    font-family: var(--fuente-texto);
+    font-size: 1rem;
+}
+
+.formulario label {
+    font-weight: 700;
+}
+
+/* Cada etiqueta queda sobre su campo (reemplaza al <br> del HTML) */
+.formulario p > label:first-child {
+    display: block;
+    margin-bottom: 4px;
+}
+
+
+/* ---- Pedido tipo "carrito" hecho solo con HTML y CSS ---- */
+
+/* Contador de productos seleccionados (CSS counters) */
+.formulario .pedido-items {
+    counter-reset: seleccionados;
+}
+
+/* Categoría desplegable (acordeón con una casilla oculta) */
+.categoria {
+    margin-bottom: 14px;
+    border: 1px solid rgba(253, 240, 225, 0.35);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.abrir {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.formulario .categoria-titulo {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background-color: rgba(253, 240, 225, 0.08);
+    color: var(--durazno);
+    font-family: var(--fuente-titulos);
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.categoria-titulo span {
+    margin-left: 8px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* Flecha que gira al abrir */
+.categoria-titulo::after {
+    content: "▾";
+    margin-left: auto;
+    transition: transform 0.3s;
+}
+
+.abrir:checked + .categoria-titulo::after {
+    transform: rotate(180deg);
+}
+
+.abrir:focus-visible + .categoria-titulo {
+    outline: 3px solid var(--durazno);
+    outline-offset: -3px;
+}
+
+/* Lista cerrada: altura 0 (sigue existiendo, por eso el contador la cuenta) */
+.categoria .items {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease, visibility 0.4s;
+}
+
+.abrir:checked ~ .items {
+    max-height: 3000px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    visibility: visible;
+    border-top: 1px solid rgba(253, 240, 225, 0.35);
+}
+
+/* Grilla de tarjetas */
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 14px;
+    list-style: none;
+}
+
+.item {
+    position: relative;
+}
+
+/* Ajuste para Safari del iPhone: el campo de fecha no debe ser
+   más ancho que el formulario */
+.formulario input[type="date"] {
+    display: block;
+    min-width: 0;
+    min-height: 44px;                    /* alto cómodo para tocar con el dedo */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* La casilla real queda oculta visualmente; la tarjeta (label) la activa */
+.agregar {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.agregar:checked {
+    counter-increment: seleccionados;    /* suma 1 por cada producto marcado */
+}
+
+.item-tarjeta {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) 36px;   /* minmax evita que el texto ensanche la tarjeta */
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background-color: var(--blanco);
+    border: 2px solid transparent;
+    border-radius: var(--radio-chico);
+    color: var(--cafe);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.formulario .item-tarjeta {
+    font-weight: 400;                /* las etiquetas del formulario son negritas; aquí no */
+}
+
+.item-tarjeta:hover {
+    border-color: var(--durazno);
+}
+
+.item-tarjeta img,
+.item-icono {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--vainilla);
+    color: var(--caramelo);
+    font-size: 1.8rem;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    line-height: 1.35;
+}
+
+.item-info strong {
+    font-size: 1rem;
+}
+
+/* Botón "+" redondo */
+.item-mas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--cafe);
+    border-radius: 50%;
+    color: var(--blanco);
+    font-weight: 700;
+}
+
+.item-mas::before {
+    content: "+";
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+/* Producto seleccionado: borde, fondo y el "+" cambia a "✓" */
+.agregar:checked + .item-tarjeta {
+    border-color: var(--verde);
+    background-color: rgb(240, 250, 243);
+}
+
+.agregar:checked + .item-tarjeta .item-mas {
+    background-color: var(--verde);
+}
+
+.agregar:checked + .item-tarjeta .item-mas::before {
+    content: "✓";
+    font-size: 1rem;
+}
+
+.agregar:focus-visible + .item-tarjeta {
+    outline: 3px solid var(--durazno);
+    outline-offset: 2px;
+}
+
+/* La cantidad aparece solo cuando el producto está seleccionado */
+.item-cantidad {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 8px 10px 0 10px;
+    font-size: 0.9rem;
+}
+
+.agregar:checked ~ .item-cantidad {
+    display: flex;
+}
+
+.formulario .item-cantidad input[type="number"] {
+    width: 60px;
+    margin-left: 4px;
+    padding: 4px;
+    border: 1px solid var(--cafe-claro);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.formulario .item-cantidad label {
+    font-weight: 400;
+}
+
+/* Resumen con el número de productos marcados */
+.resumen-pedido {
+    padding: 12px 16px;
+    background-color: rgba(253, 240, 225, 0.1);
+    border-radius: var(--radio-chico);
+    font-weight: 700;
+}
+
+.resumen-pedido::after {
+    content: counter(seleccionados);
+    display: inline-block;
+    min-width: 30px;
+    margin-left: 6px;
+    padding: 2px 8px;
+    background-color: var(--verde);
+    border-radius: var(--radio-pildora);
+    color: var(--blanco);
+    text-align: center;
+}
+
+/* ---------- 12b. ELEMENTOS CREADOS CON JAVASCRIPT ---------- */
+
+/* Resumen detallado del carrito (lo dibuja pedido.js) */
+.resumen-detalle {
+    padding: 14px 18px;
+    background-color: rgba(253, 240, 225, 0.1);
+    border-radius: var(--radio-chico);
+}
+
+.resumen-detalle ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.resumen-detalle li {
+    margin: 4px 0;
+}
+
+.resumen-detalle li span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.resumen-detalle li.sin-cantidad span {
+    color: var(--naranjo-claro);
+}
+
+.resumen-titulo,
+.resumen-total {
+    margin: 0;
+    font-weight: 700;
+}
+
+.resumen-total {
+    color: var(--durazno);
+}
+
+.resumen-vacio {
+    margin: 0;
+    font-style: italic;
+}
+
+/* Mensajes de error de la validación */
+.error {
+    display: block;
+    margin-top: 6px;
+    color: rgb(255, 170, 150);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.error::before {
+    content: "⚠ ";
+}
+
+.formulario .campo-invalido {
+    border-color: rgb(230, 110, 90);
+    box-shadow: 0 0 0 2px rgba(230, 110, 90, 0.35);
+}
+
+/* Confirmación del pedido con el mensaje para WhatsApp */
+.confirmacion {
+    margin-top: 24px;
+    padding: 20px;
+    border: 2px solid var(--verde);
+    background-color: rgba(31, 122, 70, 0.15);
+    border-radius: 16px;
+}
+
+.confirmacion h3 {
+    margin-top: 0;
+}
+
+.confirmacion pre {
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-family: var(--fuente-texto);
+    font-size: 0.9rem;
+    white-space: pre-wrap;              /* el texto largo baja de línea */
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* Tablets: los cuadros quedan angostos y los títulos en mayúsculas no caben */
+@media (min-width: 601px) and (max-width: 1200px) {
+    .contacto-contenido h2 {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+
+    /* el saludo de la portada se ajusta al ancho para no cortarse */
+    .saludo {
+        font-size: 6.4vw;
+        letter-spacing: 4px;
+    }
+
+    /* los iconos de redes de la portada bajan bajo el texto para no taparlo */
+    .redes-circulos {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 16px;
+    }
+}
+
+/* Formulario de comentarios (comentario.js) */
+.contador {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    text-align: right;
+}
+
+.contador.cerca-limite {
+    color: var(--naranjo-claro);
+    opacity: 1;
+}
+
+.vista-comentario {
+    margin: 12px 0 18px 0;
+    padding: 12px 16px;
+    border-left: 4px solid var(--durazno);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.vista-comentario p {
+    margin: 0 0 6px 0;
+}
+
+.estrellas {
+    color: var(--durazno);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* Horario: día de hoy y estado del local (lo marca horario.js) */
+.horario li.hoy {
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: rgba(253, 240, 225, 0.12);
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.estado-local {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: var(--radio-pildora);
+    font-size: 0.95rem;
+}
+
+.estado-local.abierto {
+    background-color: var(--verde);
+    color: var(--blanco);
+}
+
+.estado-local.cerrado {
+    background-color: rgba(253, 240, 225, 0.15);
+}
+
+/* ---------- 13. MAPA ---------- */
+
+.mapa {
+    width: 100%;
+    height: 350px;
+    border: 3px solid var(--caramelo);
+    border-radius: 16px;
+}

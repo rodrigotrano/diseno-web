@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Haz tu pedido de tortas, galletas, desayunos sorpresa y dulces chilenos a La Casita de Ginger, Chillán.">
+    <meta name="author" content="Rodrigo - IPLACEX Diseño Web">
+    <title>La Casita de Ginger | Haz tu pedido</title>
+    <link rel="icon" href="img/marca/mar-logo.webp" type="image/webp">
+    <!-- Tipografías de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&amp;family=Nunito:wght@400;700&amp;display=swap">
+    <!-- Hojas de estilo de la plantilla (el orden importa) -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/estructura.css">
+    <link rel="stylesheet" href="css/paginas.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/pedido.js" defer></script>
+</head>
+<body class="pagina-carta">
+
+    <!-- ===== ENCABEZADO FLOTANTE (igual en todas las páginas) ===== -->
+    <header class="encabezado">
+        <a class="boton-menu" href="#menu" aria-label="Abrir el menú completo">
+            <span></span><span></span><span></span>
+        </a>
+        <a href="index.html" class="logo-enlace">
+            <img class="logo" src="img/marca/mar-logo.webp" alt="Logo de La Casita de Ginger, Chillán, Chile" width="120" height="120">
+        </a>
+        <p class="marca"><strong>La Casita de Ginger</strong> <span>Donde la Navidad se vive todo el año</span></p>
+
+        <nav class="menu-principal" aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nuestra historia</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a class="boton" href="pedido.html" aria-current="page">Haz tu pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MENÚ COMPLETO A PANTALLA COMPLETA (se abre con :target) ===== -->
+    <nav id="menu" class="menu-completo" aria-label="Menú completo">
+        <a class="cerrar" href="#" aria-label="Cerrar el menú">&times;</a>
+        <figure class="menu-ginger">
+            <img src="img/marca/mar-ginger-saludando.webp" alt="Ginger saludando" width="481" height="700">
+        </figure>
+        <div class="menu-lista">
+            <img class="menu-logo" src="img/marca/mar-logo.webp" alt="" width="120" height="120">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html#tortas">Tortas</a></li>
+                <li><a href="productos.html#galletas">Galletas</a></li>
+                <li><a href="productos.html#pasteleria">Dulces chilenos</a></li>
+                <li><a href="productos.html#desayunos">Desayunos sorpresa</a></li>
+                <li><a href="nosotros.html">Nuestra historia</a></li>
+                <li><a href="nosotros.html#ginger">Conoce a Ginger</a></li>
+                <li><a href="nosotros.html#testimonios">Testimonios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="pedido.html">Haz tu pedido</a></li>
+                <li><a href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="carta">
+
+        <!-- Portada fija (lado izquierdo) -->
+        <div class="carta-portada portada-pedido">
+            <h1>Haz tu pedido</h1>
+            <p>Llevamos un poquito de la magia de nuestra casita hasta ti.</p>
+        </div>
+
+        <!-- Contenido (lado derecho) -->
+        <div class="contacto-contenido">
+
+            <!-- Pasos para pedir -->
+            <section id="como-pedir" class="cuadro">
+                <h2>¿Cómo pedir?</h2>
+                <ol class="pasos">
+                    <li><strong>Elige</strong> tus productos con el botón + y la cantidad.</li>
+                    <li><strong>Indica</strong> la fecha y los detalles de tu pedido.</li>
+                    <li><strong>Envía</strong> el formulario y te contactaremos para confirmar.</li>
+                </ol>
+            </section>
+
+            <!-- Pedido por WhatsApp -->
+            <section id="whatsapp" class="cuadro">
+                <h2>¿Prefieres escribirnos?</h2>
+                <p>También recibimos pedidos y consultas por WhatsApp e Instagram.</p>
+                <p class="acciones">
+                    <a class="boton boton-whatsapp" href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer">Escríbele a Ginger</a>
+                    <a class="boton boton-secundario" href="productos.html">Ver productos</a>
+                </p>
+            </section>
+
+            <!-- Formulario de pedido (ancho completo) -->
+            <section id="pedido" class="cuadro cuadro-ancho">
+                <h2>Formulario de pedido</h2>
+                <p>¿Quieres disfrutar nuestras delicias en casa o sorprender a alguien especial? Completa el formulario o escríbenos a través de nuestras redes sociales o WhatsApp para consultar por nuestros productos y realizar tus pedidos.</p>
+
+            <form class="formulario" id="form-pedido" action="mailto:Fabiola.Avendano@gmail.com" method="post" enctype="text/plain">
+
+                <fieldset>
+                    <legend>Tus datos</legend>
+                    <p>
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: María González" required>
+                    </p>
+                    <p>
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" placeholder="nombre@correo.com" required>
+                    </p>
+                    <p>
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678">
+                    </p>
+                </fieldset>
+
+                <fieldset class="pedido-items">
+                    <legend>Tu pedido</legend>
+                    <p>Abre cada categoría y presiona <strong>+</strong> en los productos que quieras. Luego indica la cantidad.</p>
+
+                    <!-- Categorías desplegables: una casilla oculta abre y cierra cada lista (acordeón con CSS) -->
+                    <div class="categoria">
+                        <input class="abrir" type="checkbox" id="categoria-1" checked>
+                        <label class="categoria-titulo" for="categoria-1">Tortas <span>(12)</span></label>
+                        <ul class="items">
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-amor" name="torta-amor" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-amor">
+                                <img src="img/tortas/carta/tor-amor-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Amor</strong><span>20 personas: $30.000</span><span>30 personas: $42.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-amor-20-personas" data-precio="30000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-amor-30-personas" data-precio="42000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-caluga" name="torta-caluga" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-caluga">
+                                <img src="img/tortas/carta/tor-caluga-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Caluga</strong><span>20 personas: $30.000</span><span>30 personas: $40.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-caluga-20-personas" data-precio="30000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-caluga-30-personas" data-precio="40000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-mocca-nuez" name="torta-mocca-nuez" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-mocca-nuez">
+                                <img class="sin-foto" src="img/marca/mar-ginger-saludando.webp" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Mocca Nuez</strong><span>20 personas: $25.000</span><span>30 personas: $35.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-mocca-nuez-20-personas" data-precio="25000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-mocca-nuez-30-personas" data-precio="35000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-pina-clasica" name="torta-pina-clasica" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-pina-clasica">
+                                <img src="img/tortas/carta/tor-pina-clasica-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta de Piña Clásica</strong><span>20 personas: $25.000</span><span>30 personas: $35.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-pina-clasica-20-personas" data-precio="25000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-pina-clasica-30-personas" data-precio="35000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-5-leches" name="torta-5-leches" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-5-leches">
+                                <img class="sin-foto" src="img/marca/mar-ginger-saludando.webp" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta 5 Leches</strong><span>20 personas: $28.000</span><span>30 personas: $38.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-5-leches-20-personas" data-precio="28000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-5-leches-30-personas" data-precio="38000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-7-sabores" name="torta-7-sabores" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-7-sabores">
+                                <img class="sin-foto" src="img/marca/mar-ginger-saludando.webp" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta 7 Sabores</strong><span>20 personas: $30.000</span><span>30 personas: $42.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-7-sabores-20-personas" data-precio="30000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-7-sabores-30-personas" data-precio="42000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-3-leches-maracuya" name="torta-3-leches-maracuya" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-3-leches-maracuya">
+                                <img src="img/tortas/carta/tor-3-leches-maracuya-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta 3 Leches Maracuyá</strong><span>20 personas: $30.000</span><span>30 personas: $42.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-3-leches-maracuya-20-personas" data-precio="30000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-3-leches-maracuya-30-personas" data-precio="42000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-pompadour" name="torta-pompadour" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-pompadour">
+                                <img src="img/tortas/carta/tor-pompadour-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Pompadour</strong><span>20 personas: $30.000</span><span>30 personas: $42.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-pompadour-20-personas" data-precio="30000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-pompadour-30-personas" data-precio="42000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-martuca" name="torta-martuca" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-martuca">
+                                <img class="sin-foto" src="img/marca/mar-ginger-saludando.webp" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Martuca</strong><span>20 personas: $30.000</span><span>30 personas: $42.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-martuca-20-personas" data-precio="30000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-martuca-30-personas" data-precio="42000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-sra-ginger" name="torta-sra-ginger" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-sra-ginger">
+                                <img src="img/tortas/carta/tor-sra-ginger-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Sra. Ginger</strong><span>20 personas: $32.000</span><span>30 personas: $45.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-sra-ginger-20-personas" data-precio="32000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-sra-ginger-30-personas" data-precio="45000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-pie-de-limon" name="torta-pie-de-limon" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-pie-de-limon">
+                                <img class="sin-foto" src="img/marca/mar-ginger-saludando.webp" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Pie de Limón</strong><span>20 personas: $28.000</span><span>30 personas: $40.000</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-pie-de-limon-20-personas" data-precio="28000" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-pie-de-limon-30-personas" data-precio="40000" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-celestial" name="torta-celestial" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-celestial">
+                                <img src="img/tortas/carta/tor-celestial-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta Celestial</strong><span>¡Novedad!</span><span>Precio: consúltanos</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>20 personas <input type="number" name="torta-celestial-20-personas" min="0" max="20" value="1"></label> <label>30 personas <input type="number" name="torta-celestial-30-personas" min="0" max="20" value="0"></label>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+
+                    <div class="categoria">
+                        <input class="abrir" type="checkbox" id="categoria-2">
+                        <label class="categoria-titulo" for="categoria-2">Tortas temáticas y galletas <span>(3)</span></label>
+                        <ul class="items">
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-torta-tematica" name="torta-tematica" value="agregado">
+                            <label class="item-tarjeta" for="add-torta-tematica">
+                                <img src="img/tortas/tematicas/tem-cumpleanos-gabriela-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Torta temática personalizada</strong><span>Precio según diseño</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>Cantidad <input type="number" name="torta-tematica-cantidad" min="1" max="50" value="1"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-galletas-decoradas" name="galletas-decoradas" value="agregado">
+                            <label class="item-tarjeta" for="add-galletas-decoradas">
+                                <img src="img/galletas/gal-personalizadas-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Galletas decoradas</strong><span>Precio según cantidad y diseño</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>Cantidad <input type="number" name="galletas-decoradas-cantidad" min="1" max="50" value="1"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-galletitas-pintables" name="galletitas-pintables" value="agregado">
+                            <label class="item-tarjeta" for="add-galletitas-pintables">
+                                <span class="item-icono"><svg class="icono" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg></span>
+                                <span class="item-info"><strong>Cajita de galletitas pintables</strong><span>7 galletitas para pintar</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>Cantidad <input type="number" name="galletitas-pintables-cantidad" min="1" max="50" value="1"></label>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+
+                    <div class="categoria">
+                        <input class="abrir" type="checkbox" id="categoria-3">
+                        <label class="categoria-titulo" for="categoria-3">Dulces chilenos y desayunos <span>(4)</span></label>
+                        <ul class="items">
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-picarones" name="picarones" value="agregado">
+                            <label class="item-tarjeta" for="add-picarones">
+                                <span class="item-icono"><svg class="icono" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M247.2 17c-22.1-3.1-44.6 .9-64.4 11.4l-74 39.5C89.1 78.4 73.2 94.9 63.4 115L26.7 190.6c-9.8 20.1-13 42.9-9.1 64.9l14.5 82.8c3.9 22.1 14.6 42.3 30.7 57.9l60.3 58.4c16.1 15.6 36.6 25.6 58.7 28.7l83 11.7c22.1 3.1 44.6-.9 64.4-11.4l74-39.5c19.7-10.5 35.6-27 45.4-47.2l36.7-75.5c9.8-20.1 13-42.9 9.1-64.9l-14.6-82.8c-3.9-22.1-14.6-42.3-30.7-57.9L388.9 57.5c-16.1-15.6-36.6-25.6-58.7-28.7L247.2 17zM208 144a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM144 336a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm224-64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>
+                                <span class="item-info"><strong>Picarones</strong><span>Con chancaca</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>Cantidad <input type="number" name="picarones-cantidad" min="1" max="50" value="1"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-dulces-chilenos" name="dulces-chilenos" value="agregado">
+                            <label class="item-tarjeta" for="add-dulces-chilenos">
+                                <span class="item-icono"><svg class="icono" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M348.8 131.5c3.7-2.3 7.9-3.5 12.2-3.5c12.7 0 23 10.3 23 23v5.6c0 9.9-5.1 19.1-13.5 24.3L30.1 393.7C.1 412.5-9 451.9 9.7 481.9s58.2 39.1 88.2 20.4L438.4 289.5c45.8-28.6 73.6-78.8 73.6-132.8V151C512 67.6 444.4 0 361 0c-28.3 0-56 8-80.1 23L254.1 39.7c-30 18.7-39.1 58.2-20.4 88.2s58.2 39.1 88.2 20.4l26.8-16.8zM298.4 49.8c9.2-5.7 19.1-10.1 29.4-13.1L348 97.5c-5.7 1.4-11.2 3.7-16.3 6.8l-12.6 7.9L298.4 49.8zm88.5 52.7l46.2-46.2c8.5 6.5 16.1 14.1 22.6 22.6l-46.2 46.2c-5.1-9.6-13-17.5-22.6-22.6zm28.9 59.3l61.6 20.5c-2.2 10.5-5.8 20.7-10.5 30.2l-62-20.7c6.2-8.8 10.1-19.1 11-30.1zm-86.1 82.5l60.4 37.7-30.2 18.9-60.4-37.7 30.2-18.9zm-107.2 67l60.4 37.7-30.2 18.9-60.4-37.7 30.2-18.9zM119.3 375.7l60.4 37.7-30.2 18.9L89.1 394.6l30.2-18.9z"/></svg></span>
+                                <span class="item-info"><strong>Dulces chilenos</strong><span>Alfajores y otros</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>Cantidad <input type="number" name="dulces-chilenos-cantidad" min="1" max="50" value="1"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-kuchen-pie" name="kuchen-pie" value="agregado">
+                            <label class="item-tarjeta" for="add-kuchen-pie">
+                                <img src="img/instagram/ig-merengue-01.jpg" alt="" width="120" height="120">
+                                <span class="item-info"><strong>Kuchen o pie</strong><span>Frutillas, manzana canela y más</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>Cantidad <input type="number" name="kuchen-pie-cantidad" min="1" max="50" value="1"></label>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <input class="agregar" type="checkbox" id="add-desayuno-sorpresa" name="desayuno-sorpresa" value="agregado">
+                            <label class="item-tarjeta" for="add-desayuno-sorpresa">
+                                <span class="item-icono"><svg class="icono" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M190.5 68.8L225.3 128H224 152c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H438.4c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40H288h-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48H360c22.1 0 40 17.9 40 40zM32 288V464c0 26.5 21.5 48 48 48H224V288H32zM288 512H432c26.5 0 48-21.5 48-48V288H288V512z"/></svg></span>
+                                <span class="item-info"><strong>Desayuno sorpresa personalizado</strong><span>Cajita con detalles y mensaje</span></span>
+                                <span class="item-mas" aria-hidden="true"></span>
+                            </label>
+                            <div class="item-cantidad">
+                                <label>Cantidad <input type="number" name="desayuno-sorpresa-cantidad" min="1" max="50" value="1"></label>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+
+                    <!-- Sin JavaScript se ve el contador de CSS; con JavaScript, pedido.js lo reemplaza por el resumen detallado -->
+                    <p class="resumen-pedido">Productos distintos elegidos: </p>
+                    <div id="resumen" class="resumen-detalle" aria-live="polite" hidden></div>
+
+                    <p>
+                        <label for="fecha">Fecha en que necesitas tu pedido:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </p>
+                    <p>
+                        <label for="detalle">Detalles del pedido:</label>
+                        <textarea id="detalle" name="detalle" rows="5" cols="50" placeholder="Temática de la torta, mensaje, sabores de galletas, otro producto que quieras, etc."></textarea>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>¿Cómo te contactamos?</legend>
+                    <!-- Cada casilla va junto a su texto, para que no se separen al bajar de línea -->
+                    <ul class="opciones">
+                        <li><input type="checkbox" id="contacto-correo" name="medio_contacto" value="correo" checked> <label for="contacto-correo">Correo electrónico</label></li>
+                        <li><input type="checkbox" id="contacto-whatsapp" name="medio_contacto" value="whatsapp"> <label for="contacto-whatsapp">WhatsApp</label></li>
+                        <li><input type="checkbox" id="contacto-instagram" name="medio_contacto" value="instagram"> <label for="contacto-instagram">Instagram</label></li>
+                    </ul>
+                </fieldset>
+
+                <p class="acciones">
+                    <button class="boton" type="submit">Enviar pedido</button>
+                    <button class="boton boton-secundario" type="reset">Limpiar formulario</button>
+                </p>
+            </form>
+
+            <!-- Confirmación: pedido.js la completa y la muestra al enviar un pedido válido -->
+            <div id="confirmacion" class="confirmacion" tabindex="-1" hidden></div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ===== REDES SOCIALES FLOTANTES (igual en todas las páginas) ===== -->
+    <aside class="redes-flotantes" aria-label="Redes sociales">
+        <ul>
+            <li><a class="red red-instagram" href="https://www.instagram.com/lacasitadeginger_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @lacasitadeginger_"><svg class="icono" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a></li>
+            <li><a class="red red-tiktok" href="https://www.tiktok.com/@lacasitadeginger" target="_blank" rel="noopener noreferrer" aria-label="TikTok @lacasitadeginger"><svg class="icono" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a></li>
+            <li><a class="red red-whatsapp" href="https://wa.me/56952281744" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +56 9 5228 1744"><svg class="icono" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a></li>
+            <li><span class="red red-facebook" role="img" title="Facebook: próximamente" aria-label="Facebook: próximamente"><svg class="icono" viewBox="0 0 320 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg></span></li>
+        </ul>
+    </aside>
+
+    <!-- ===== PIE DE PÁGINA ===== -->
+    <footer class="pie">
+        <p class="creditos"><small>&copy; 2026 La Casita de Ginger · Sitio diseñado y desarrollado por <strong>Rodrigo Tranolao</strong></small></p>
+    </footer>
+
+</body>
+</html>

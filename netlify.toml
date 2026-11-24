@@ -1,0 +1,3 @@
+# Despliegue en Netlify: se publica la versión final del sitio (sin proceso de build)
+[build]
+  publish = "la-casita-de-ginger/examen-final/public_html"

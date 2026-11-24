@@ -1,0 +1,272 @@
+/* ==========================================================
+   La Casita de Ginger · estructura.css
+   Estructura común a todas las páginas: encabezado, menú y pie de página.
+   Diseño Web · Evaluación N°3 · Rodrigo Tranolao
+   ========================================================== */
+
+/* ---------- 3. ENCABEZADO FLOTANTE (selectores de clase) ---------- */
+
+.encabezado {
+    position: fixed;                 /* queda flotando arriba al bajar */
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);     /* lo centra horizontalmente */
+    z-index: 50;
+    display: flex;                   /* botón, logo, nombre y menú en una fila */
+    align-items: center;
+    gap: 12px;
+    padding: 8px 8px 8px 8px;
+    background-color: var(--vainilla);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    width: max-content;              /* el ancho se ajusta a su contenido */
+}
+
+.encabezado > * {
+    flex-shrink: 0;                  /* ningún elemento se aplasta */
+}
+
+/* Botón de tres líneas ("hamburguesa") */
+.boton-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 11px;
+    background-color: var(--caramelo);
+    border-radius: 10px;
+}
+
+.boton-menu span {
+    display: block;
+    height: 2px;
+    background-color: var(--vainilla);
+    border-radius: 2px;
+}
+
+.logo {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+/* Nombre pequeño, como en la referencia */
+.marca {
+    margin: 0;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.marca span {
+    display: block;                  /* el lema va bajo el nombre */
+}
+
+.marca strong {
+    font-family: var(--fuente-titulos);
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.menu-principal ul {
+    display: flex;                   /* enlaces en horizontal */
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0 0 0 8px;
+    list-style: none;
+}
+
+.menu-principal a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--cafe);
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.menu-principal a:hover {
+    background-color: rgba(165, 62, 20, 0.12);
+}
+
+.menu-principal a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+}
+
+/* El último enlace es un botón destacado (como "Reservar") */
+.menu-principal .boton {
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: var(--vainilla);
+}
+
+
+/* ---------- 4. MENÚ COMPLETO A PANTALLA COMPLETA ---------- */
+
+/* Oculto por defecto; se muestra cuando la URL termina en #menu (:target) */
+.menu-completo {
+    position: fixed;
+    inset: 16px;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 6%;
+    padding: 40px;
+    background-color: var(--vainilla);
+    border-radius: var(--radio-grande);
+    overflow-y: auto;
+}
+
+.menu-completo:target {
+    display: flex;
+    animation: fundido 0.4s ease;
+}
+
+.cerrar {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--cafe);
+    border-radius: 10px;
+    color: var(--cafe);
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cerrar:hover {
+    background-color: var(--cafe);
+    color: var(--vainilla);
+}
+
+/* Ginger a un costado del menú, saludando */
+.menu-ginger {
+    width: 28%;
+    max-width: 320px;
+    margin: 0;
+}
+
+.menu-ginger img {
+    animation: saludar 2.4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.menu-lista {
+    text-align: center;
+}
+
+.menu-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.menu-lista ul {
+    margin: 8px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-lista a {
+    display: inline-block;
+    padding: 2px 0;
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--cafe);
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s, letter-spacing 0.3s;
+}
+
+.menu-lista a:hover {
+    color: var(--caramelo);
+    letter-spacing: 6px;             /* las letras se separan al pasar el mouse */
+}
+
+
+/* ---------- 14. PIE DE PÁGINA Y REDES FLOTANTES ---------- */
+
+.pie {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 8px 8px 8px;
+    color: var(--vainilla);
+}
+
+.creditos {
+    margin: 0;
+    text-align: center;
+}
+
+/* Barra de redes fija al costado izquierdo, centrada en la altura */
+.redes-flotantes {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    padding: 10px 8px;
+    background-color: rgba(253, 240, 225, 0.92);
+    border-radius: 0 18px 18px 0;    /* solo las esquinas derechas redondeadas */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.redes-flotantes ul {
+    display: flex;
+    flex-direction: column;          /* íconos uno debajo del otro */
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.red {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.35rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+a.red:hover {
+    color: var(--blanco);
+    transform: scale(1.15);          /* crece al pasar el mouse */
+}
+
+/* Íconos en el mismo estilo neutro de la portada */
+.red {
+    background-color: var(--cafe);
+    color: var(--vainilla);
+}
+
+a.red:hover {
+    background-color: var(--caramelo);
+    color: var(--blanco);
+}
+
+.red-facebook {
+    opacity: 0.45;                   /* atenuado: la cuenta aún no existe */
+    cursor: not-allowed;
+}

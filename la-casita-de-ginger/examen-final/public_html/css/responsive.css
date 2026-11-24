@@ -1,0 +1,200 @@
+/* ==========================================================
+   La Casita de Ginger · responsive.css
+   Adaptación a tablets y celulares (media queries). Se carga al final.
+   Diseño Web · Evaluación N°3 · Rodrigo Tranolao
+   ========================================================== */
+
+/* ---------- 15. PANTALLAS MEDIANAS Y PEQUEÑAS ---------- */
+
+@media (max-width: 1000px) {
+    /* en pantallas angostas solo quedan el botón de menú, el logo y "Haz tu pedido" */
+    .menu-principal li {
+        display: none;
+    }
+
+    .menu-principal li:last-child {
+        display: block;
+    }
+
+    .inicio .encabezado {
+        left: 50%;
+    }
+
+    /* la portada pasa a una columna y se puede desplazar */
+    .inicio {
+        height: auto;
+        overflow: visible;
+    }
+
+    .portada {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero > .hero-ginger {
+        height: 300px;
+    }
+
+    .tarjetas {
+        grid-template-rows: none;
+    }
+
+    .tarjeta {
+        height: 200px;
+    }
+
+    .saludo {
+        font-size: 4.5rem;
+    }
+
+    .menu-ginger {
+        display: none;
+    }
+
+    .pagina-carta {
+        padding-top: 110px;
+    }
+
+    .carta {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .carta-portada {
+        position: static;
+        height: 55vh;
+    }
+
+    .carta-contenido {
+        border: none;
+        padding: 16px 4%;
+    }
+
+    .contacto-contenido {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 0;
+    }
+
+    .cuadro-ginger {
+        flex-direction: column;
+    }
+
+    .nosotros-contenido .identidad {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .historia-texto {
+        columns: 1;
+    }
+
+    body {
+        padding: 96px 10px 10px 10px;
+    }
+
+    .encabezado {
+        top: 16px;
+        gap: 8px;
+    }
+
+    .marca {
+        display: none;
+    }
+
+    .saludo {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+
+    .portada-interna h1 {
+        font-size: 2.4rem;
+        letter-spacing: 3px;
+    }
+
+    main section {
+        padding: 22px;
+    }
+
+    main section > figure,
+    #ginger > figure {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px 0;
+    }
+
+    .menu-lista a {
+        font-size: 1.4rem;
+    }
+
+    .redes-circulos {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 16px;
+    }
+
+    /* en celular la barra de redes deja de flotar: va en fila al final de la página,
+       antes del pie, para no tapar el contenido */
+    .redes-flotantes {
+        position: static;
+        transform: none;
+        width: max-content;
+        margin: 24px auto 0 auto;
+        padding: 8px 12px;
+        border-radius: var(--radio-pildora);
+    }
+
+    .redes-flotantes ul {
+        flex-direction: row;
+    }
+
+    /* la ilustración deja de flotar y el texto usa todo el ancho */
+    .nosotros-contenido .patinadora {
+        float: none;
+        width: 160px;
+        margin: 0 auto 16px auto;
+    }
+
+    .red {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    .carta-portada h1 {
+        font-size: 3rem;
+    }
+
+    .carta-contenido h2 {
+        font-size: 1.35rem;
+        letter-spacing: 1px;
+    }
+
+    .carta-contenido h2::before,
+    .carta-contenido h2::after {
+        flex-basis: 16px;
+    }
+
+    .carta-contenido .producto {
+        grid-template-columns: 90px 1fr;
+    }
+
+    .carta-contenido .producto img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .carta-contenido .foto-proximamente {
+        width: 90px;
+        height: 90px;
+    }
+
+    .carta-contenido .foto-proximamente img {
+        width: auto;
+        height: 52px;
+    }
+
+}
