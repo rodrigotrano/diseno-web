@@ -4,13 +4,13 @@
 
 **Sitio web para una pastelería artesanal de Chillán donde la Navidad se vive todo el año.**
 
-[![Sitio publicado](https://img.shields.io/badge/Sitio_publicado-Netlify-00C7B7?logo=netlify&logoColor=white)](URL_NETLIFY)
+[![Sitio publicado](https://img.shields.io/badge/Sitio_publicado-Netlify-00C7B7?logo=netlify&logoColor=white)](https://la-casita-de-ginger.netlify.app/)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![Responsive](https://img.shields.io/badge/Responsive-celular_·_tablet_·_escritorio-7B3F1E)
 
-[**🔗 Ver el sitio**](URL_NETLIFY) · [Código fuente](la-casita-de-ginger/examen-final/public_html) · [Historial de evaluaciones](#-historial-del-proyecto)
+[**🔗 Ver el sitio**](https://la-casita-de-ginger.netlify.app/) · [Código fuente](la-casita-de-ginger/examen-final/public_html) · [Historial de evaluaciones](#-historial-del-proyecto)
 
 <img src="docs/capturas/inicio-escritorio.webp" alt="Portada del sitio La Casita de Ginger en escritorio" width="900">
 
